@@ -39,4 +39,15 @@ public class p1475 {
     }
 
 
+    public static void main(String[] args) {
+
+
+        int arr[]={8,4,6,2,3};
+        p1475 t=new p1475();
+        int[] res = t.finalPrices(arr);
+        System.out.println(res);
+
+    }
+
+
 }
