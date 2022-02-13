@@ -6,6 +6,8 @@ package JZOffer;
  * @Author EugeneLi
  * @Date: 2022/1/18
  * @Time: 20:24
+ *
+ * 在二叉树中找到最近公共祖先
  */
 public class JZOffer68_2 {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {

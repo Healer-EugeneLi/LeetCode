@@ -9,6 +9,7 @@ import java.util.List;
  * @Author EugeneLi
  * @Date: 2022/1/28
  * @Time: 10:26
+ * 判断一棵树是否是另一颗树的子结构
  */
 public class JZOffer26 {
 

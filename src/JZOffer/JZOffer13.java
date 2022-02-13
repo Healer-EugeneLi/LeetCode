@@ -39,6 +39,19 @@ public class JZOffer13 {
         return dfs(x,y+1,m,n,k)||dfs(x+1,y,m,n,k);
     }
 
+    //这种写法也是可以的
+    public void dfs(int x,int y,boolean arr[][],int m,int n,int k){
+
+        if(x<0||x>=m||y<0||y>=n||(getSum(x)+getSum(y))>k||arr[x][y]==true)
+            return ;
+
+        count++;
+        arr[x][y]=true;
+
+        //往右 往下即可
+        dfs(x,y+1,arr,m,n,k);
+        dfs(x+1,y,arr,m,n,k);
+    }
     public int getSum(int a){
 
         //比如a=35
