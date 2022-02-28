@@ -72,5 +72,7 @@ public class p416 {
         p416 t=new p416();
         boolean res = t.canPartition(nums);
         System.out.println(res);
+
+
     }
 }

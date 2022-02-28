@@ -8,6 +8,9 @@ import java.util.HashMap;
  * @Author EugeneLi
  * @Date: 2021/9/22
  * @Time: 22:27
+ * 输入: s = "pwwkew"
+ * 输出: 3
+因为无重复字符的最长子串是 "wke"，所以其长度为 3。
  */
 public class p3 {
 
@@ -35,8 +38,8 @@ public class p3 {
     }
 
     public static void main(String[] args) {
-
-        String s= "pwwkew";
+//"pwwkew"
+        String s= "bbbb";
         p3 t=new p3();
         int res = t.lengthOfLongestSubstring(s);
         System.out.println(res);
