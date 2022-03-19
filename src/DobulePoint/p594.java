@@ -40,19 +40,19 @@ public class p594 {
     //使用哈希计数的方式
     public int findLHS(int[] nums) {
 
-        if (nums==null||nums.length==0||nums.length==1) return 0;
+        if (nums == null || nums.length == 0 || nums.length == 1) return 0;
 
-        int ans=0;
-        HashMap<Integer,Integer> map=new HashMap<>();
+        int ans = 0;
+        HashMap<Integer, Integer> map = new HashMap<>();
 
-        for (int num:nums){
-            map.put(num,map.getOrDefault(num,0)+1);
+        for (int num : nums) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
         }
 
         //和谐数组肯定是 a a a a+1 a+1 这种形式
-        for (int num:nums){
-            if (map.containsKey(num-1)){
-                ans=Math.max(ans,map.get(num-1)+map.get(num));
+        for (int num : nums) {
+            if (map.containsKey(num - 1)) {
+                ans = Math.max(ans, map.get(num - 1) + map.get(num));
             }
 
         }
@@ -61,8 +61,8 @@ public class p594 {
 
     public static void main(String[] args) {
 
-        int arr[]={1,3,2,2,5,2,3,7};
-        p594 t=new p594();
+        int arr[] = {1, 3, 2, 2, 5, 2, 3, 7};
+        p594 t = new p594();
         int res = t.findLHS(arr);
         System.out.println(res);
     }

@@ -8,7 +8,8 @@ package DP;
  * @Time: 22:14
  */
 public class p639 {
-    int mod = (int)1e9+7;
+    int mod = (int) 1e9 + 7;
+
     public int numDecodings(String s) {
         char[] cs = s.toCharArray();
         int n = cs.length;
@@ -24,7 +25,7 @@ public class p639 {
                     // 11 - 19 & 21 - 26
                     f[i] += (i - 2 >= 0 ? f[i - 2] : 1) * 15;
                 } else {
-                    int u = (int)(prev - '0');
+                    int u = (int) (prev - '0');
                     if (u == 1) {
                         f[i] += (i - 2 >= 0 ? f[i - 2] : 1) * 9;
                     } else if (u == 2) {
@@ -32,7 +33,7 @@ public class p639 {
                     }
                 }
             } else {
-                int t = (int)(c - '0');
+                int t = (int) (c - '0');
                 if (prev == '*') {
                     if (t == 0) {
                         f[i] += (i - 2 >= 0 ? f[i - 2] : 1) * 2;
@@ -47,7 +48,7 @@ public class p639 {
                         }
                     }
                 } else {
-                    int u = (int)(prev - '0');
+                    int u = (int) (prev - '0');
                     if (t == 0) {
                         if (u == 1 || u == 2) {
                             f[i] += i - 2 >= 0 ? f[i - 2] : 1;
@@ -66,7 +67,7 @@ public class p639 {
             }
             f[i] %= mod;
         }
-        return (int)(f[n - 1]);
+        return (int) (f[n - 1]);
     }
 
 }

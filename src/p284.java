@@ -13,10 +13,11 @@ public class p284 {
 
         Iterator<Integer> iter;
         Integer next;
+
         public PeekingIterator(Iterator<Integer> iterator) {
             // initialize any member here.
-            iter=iterator;
-            if (iter.hasNext()) next=iter.next();//事先调用一次 next() 并使用该变量 next
+            iter = iterator;
+            if (iter.hasNext()) next = iter.next();//事先调用一次 next() 并使用该变量 next
             // next保留下一个元素
 
         }
@@ -31,14 +32,14 @@ public class p284 {
         @Override
         public Integer next() {
 
-            Integer ans=next;
-            next=iter.hasNext()?iter.next():null;
+            Integer ans = next;
+            next = iter.hasNext() ? iter.next() : null;
             return ans;
         }
 
         @Override
         public boolean hasNext() {
-            return next!=null;
+            return next != null;
         }
     }
 }

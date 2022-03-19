@@ -15,20 +15,20 @@ import java.util.List;
 public class p1346 {
     public boolean checkIfExist(int[] arr) {
 
-        HashSet<Integer> set=new HashSet<>();
-        int count=0;
-        for (int a:arr){
-            if (a==0) count++;
-            if (count==2) return true;
+        HashSet<Integer> set = new HashSet<>();
+        int count = 0;
+        for (int a : arr) {
+            if (a == 0) count++;
+            if (count == 2) return true;
             set.add(a);
         }
 
 
-        for (int a:arr){
-            if (a==0) continue;
-            double t1=a/2.0;
-            int t2=a*2;
-            if (set.contains(t1)||set.contains(t2)) return true;
+        for (int a : arr) {
+            if (a == 0) continue;
+            double t1 = a / 2.0;
+            int t2 = a * 2;
+            if (set.contains(t1) || set.contains(t2)) return true;
         }
 
         return false;

@@ -11,30 +11,29 @@ public class createGraph {
 
 
     /**
-     *
      * @param matrix N*3 的矩阵 from to weight
      * @return
      */
-    public static Graph changeToGraph(Integer[][] matrix){
+    public static Graph changeToGraph(Integer[][] matrix) {
 
-        Graph graph=new Graph();
-        for (int i=0;i<matrix.length;i++){
+        Graph graph = new Graph();
+        for (int i = 0; i < matrix.length; i++) {
 
             Integer from = matrix[i][0];
             Integer to = matrix[i][1];
             Integer weight = matrix[i][2];
-            if (!graph.nodes.containsKey(from)){
+            if (!graph.nodes.containsKey(from)) {
                 //如果点集里面没有这个点
-                graph.nodes.put(from,new Node(from));
+                graph.nodes.put(from, new Node(from));
             }
-            if (!graph.nodes.containsKey(to)){
-                graph.nodes.put(to,new Node(to));
+            if (!graph.nodes.containsKey(to)) {
+                graph.nodes.put(to, new Node(to));
             }
 
             Node fromNode = graph.nodes.get(from);//获取from节点
             Node toNode = graph.nodes.get(to);
             //创建边
-            Edge edge=new Edge(weight,fromNode,toNode);
+            Edge edge = new Edge(weight, fromNode, toNode);
             //创建完边之后 更新点边的相关信息
             fromNode.nexts.add(toNode);//from这个节点加入与它相连的结点
             fromNode.out++;//出度++

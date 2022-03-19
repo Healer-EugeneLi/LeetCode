@@ -34,15 +34,15 @@ public class p441 {
     public int arrangeCoins(int n) {
 
 
-        return (int)(-1+Math.sqrt(8.0*n+1))/2;
+        return (int) (-1 + Math.sqrt(8.0 * n + 1)) / 2;
 
 
     }
 
     public static void main(String[] args) {
 
-        int n=8;
-        p441 t=new p441();
+        int n = 8;
+        p441 t = new p441();
         int res = t.arrangeCoins(n);
         System.out.println(res);
     }

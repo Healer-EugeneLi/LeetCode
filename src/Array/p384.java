@@ -51,10 +51,11 @@ public class p384 {
 
         public int n;//长度
         public int arr[];
-        Random random=new Random();
+        Random random = new Random();
+
         public Solution(int[] nums) {
-            arr=nums;
-            n=nums.length;
+            arr = nums;
+            n = nums.length;
 
         }
 
@@ -64,28 +65,28 @@ public class p384 {
 
         public int[] shuffle() {
 
-            int [] res=arr.clone();//复制一份数组
-            for (int i=0;i<n;i++){
+            int[] res = arr.clone();//复制一份数组
+            for (int i = 0; i < n; i++) {
                 //对i这个索引位置 随机从[i,n-1)这个索引范围里寻找
                 //对于 random.nextInt(5) 随机范围在0~4
-                int j=i+ random.nextInt(n-i);
-                swap(res,i,j);
+                int j = i + random.nextInt(n - i);
+                swap(res, i, j);
             }
             return res;
 
         }
 
-        public void swap(int arr[],int i,int j){
+        public void swap(int arr[], int i, int j) {
 
-            int temp=arr[i];
-            arr[i]=arr[j];
-            arr[j]=temp;
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
         }
     }
 
 
     public static void main(String[] args) {
-        Random random=new Random();
+        Random random = new Random();
         int i = random.nextInt(5);
         System.out.println(i);
     }

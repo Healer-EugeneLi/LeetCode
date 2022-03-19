@@ -43,23 +43,23 @@ public class p416 {
 
     public boolean canPartition(int[] nums) {
 
-        int n=nums.length;
-        int weight=0;
-        for (int num:nums)
-            weight+=num;
-        if (weight%2!=0) return false;
-        weight/=2;
-        int dp[]=new int[weight+1];
+        int n = nums.length;
+        int weight = 0;
+        for (int num : nums)
+            weight += num;
+        if (weight % 2 != 0) return false;
+        weight /= 2;
+        int dp[] = new int[weight + 1];
 
         //遍历n个物品
-        for (int i=1;i<=n;i++){
+        for (int i = 1; i <= n; i++) {
 
             //对背包容量从后往前遍历 要放得下当前这个物品才放入 否则保持的是原先的值
-            for (int j=weight;j>=nums[i-1];j--){
+            for (int j = weight; j >= nums[i - 1]; j--) {
 
-                dp[j]=Math.max(dp[j],dp[j-nums[i-1]]+nums[i-1]);
+                dp[j] = Math.max(dp[j], dp[j - nums[i - 1]] + nums[i - 1]);
 
-                if (dp[j]==weight) return true;
+                if (dp[j] == weight) return true;
             }
         }
         return false;
@@ -67,9 +67,9 @@ public class p416 {
 
     public static void main(String[] args) {
 
-        int nums[]={1,5,11,5};
+        int nums[] = {1, 5, 11, 5};
 
-        p416 t=new p416();
+        p416 t = new p416();
         boolean res = t.canPartition(nums);
         System.out.println(res);
 

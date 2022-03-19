@@ -15,24 +15,24 @@ public class p283 {
 
     public void moveZeroes(int[] nums) {
 
-        int length=nums.length;
-        if (length==0||length==1) return;
+        int length = nums.length;
+        if (length == 0 || length == 1) return;
 
-        int left=0,right=1;
+        int left = 0, right = 1;
 
-        for (;left<length&&right<length;){
+        for (; left < length && right < length; ) {
 
             //当碰到left指针指向的不是0  那么left往后移动
-            if (nums[left]!=0){
+            if (nums[left] != 0) {
                 left++;
                 right++;
-            }else if (nums[left]==0&&nums[right]==0){
+            } else if (nums[left] == 0 && nums[right] == 0) {
                 //此时无法与right交换 让right继续往前走找到right不为0的 来交换
                 right++;
-            }else if (nums[left]==0&&nums[right]!=0){
+            } else if (nums[left] == 0 && nums[right] != 0) {
                 //left可以与right交换
-                nums[left]=nums[right];
-                nums[right]=0;
+                nums[left] = nums[right];
+                nums[right] = 0;
                 left++;
                 right++;
             }

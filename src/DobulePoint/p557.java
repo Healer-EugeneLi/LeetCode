@@ -48,25 +48,24 @@ public class p557 {
 //    }
 
 
-
     public String reverseWords(String s) {
 
-        int i=0;
-        int length=s.length();
+        int i = 0;
+        int length = s.length();
         StringBuffer result = new StringBuffer();
-        while (i<length){
+        while (i < length) {
 
-            int left=i;
-            while (i<length&&s.charAt(i)!=' '){
+            int left = i;
+            while (i < length && s.charAt(i) != ' ') {
                 i++;
             }
 
             //开始交换
-            int right=i-1;
-            for (int p=left;p<=right;p++){
-                result.append(s.charAt(left+right-p));//要记得+left 这样才会在下一个单词中找到正确的位置
+            int right = i - 1;
+            for (int p = left; p <= right; p++) {
+                result.append(s.charAt(left + right - p));//要记得+left 这样才会在下一个单词中找到正确的位置
             }
-            while (i<length&&s.charAt(i)==' '){
+            while (i < length && s.charAt(i) == ' ') {
                 i++;
                 result.append(' ');
             }

@@ -10,7 +10,7 @@ import java.util.Arrays;
  * @Time: 22:39
  */
 public class JZOffer39 {
-//    public int majorityElement(int[] nums) {
+    //    public int majorityElement(int[] nums) {
 //        //[1, 2, 3, 2, 2, 2, 5, 4, 2]
 //
 //        Arrays.sort(nums);
@@ -19,14 +19,14 @@ public class JZOffer39 {
     public int majorityElement(int[] nums) {
         //[1, 2, 3, 2, 2, 2, 5, 4, 2]
 
-       //摩根投票法
-        int current=0;//当前被认为有可能是大于一半的数
-        int vote=0;//票数和
-        for (int i=0;i<nums.length;i++){
+        //摩根投票法
+        int current = 0;//当前被认为有可能是大于一半的数
+        int vote = 0;//票数和
+        for (int i = 0; i < nums.length; i++) {
 
-            if(vote==0) current=nums[i];
+            if (vote == 0) current = nums[i];
 
-            vote+=current==nums[i]?1:-1;
+            vote += current == nums[i] ? 1 : -1;
         }
         return current;
     }

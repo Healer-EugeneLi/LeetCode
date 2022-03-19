@@ -21,79 +21,79 @@ import java.util.Scanner;
  */
 public class ArrangeQ2 {
 
-   public static class Node{
+    public static class Node {
         int time;
         int level;
 
-        public Node(int time,int level){
-            this.time=time;
-            this.level=level;
+        public Node(int time, int level) {
+            this.time = time;
+            this.level = level;
         }
     }
 
-    public static final int MAXN= 100007;
+    public static final int MAXN = 100007;
 
-    public static int n,m;
-    public static int levelSatisfy[]=new int[101];
+    public static int n, m;
+    public static int levelSatisfy[] = new int[101];
     public static int num;
     public static long sum;
 
     public static void main(String[] args) {
 
 
-        Scanner scanner=new Scanner(System.in);
-        String line=scanner.nextLine();
+        Scanner scanner = new Scanner(System.in);
+        String line = scanner.nextLine();
         String[] s = line.split(" ");
-        n=Integer.valueOf(s[0]);
-        m=Integer.valueOf(s[1]);
-        Node[] machine=new Node[n];
-        Node[] task=new Node[m];
-        for (int i=0;i<n;i++){
-            int mTime=scanner.nextInt();
-            int mLevel=scanner.nextInt();
-            machine[i]=new Node(mTime,mLevel);
+        n = Integer.valueOf(s[0]);
+        m = Integer.valueOf(s[1]);
+        Node[] machine = new Node[n];
+        Node[] task = new Node[m];
+        for (int i = 0; i < n; i++) {
+            int mTime = scanner.nextInt();
+            int mLevel = scanner.nextInt();
+            machine[i] = new Node(mTime, mLevel);
         }
-        for (int j=0;j<m;j++){
-            int tTime=scanner.nextInt();
-            int tLevel=scanner.nextInt();
-           task[j]=new Node(tTime,tLevel);
+        for (int j = 0; j < m; j++) {
+            int tTime = scanner.nextInt();
+            int tLevel = scanner.nextInt();
+            task[j] = new Node(tTime, tLevel);
         }
 
-        Comparator<Node> comparator=new Comparator<Node>() {
+        Comparator<Node> comparator = new Comparator<Node>() {
             @Override
             public int compare(Node o1, Node o2) {
-                if (o1.time==o2.time)
-                    return o2.level-o1.level;
-                return o2.time-o1.time;
+                if (o1.time == o2.time)
+                    return o2.level - o1.level;
+                return o2.time - o1.time;
             }
         };
         Arrays.sort(machine, comparator);
-        Arrays.sort(task,comparator);
+        Arrays.sort(task, comparator);
 
-        int j=0;
+        int j = 0;
         //对于每一个任务 找到满足条件的机器 并且尽量找等级较小的
-        for (int i=0;i<m;i++){
+        for (int i = 0; i < m; i++) {
 
-            while (j<n&&task[i].time<=machine[j].time){
+            while (j < n && task[i].time <= machine[j].time) {
 
                 levelSatisfy[machine[j].level]++;//该等级++ 表示这个等级有机器
                 j++;
             }
 
-            for (int k=task[i].level;k<=100;k++){
+            for (int k = task[i].level; k <= 100; k++) {
 
-                if (levelSatisfy[k]!=0){
+                if (levelSatisfy[k] != 0) {
                     //找到符合条件的机器 且级别较小
                     num++;
                     levelSatisfy[k]--;//该等级机器数量--
-                    sum+=task[i].time*200+3*task[i].level;
+                    sum += task[i].time * 200 + 3 * task[i].level;
                     break;
                 }
             }
 
         }
 
-        System.out.println(num+" "+sum);
+        System.out.println(num + " " + sum);
 
     }
 }

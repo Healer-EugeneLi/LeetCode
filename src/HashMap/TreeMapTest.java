@@ -15,15 +15,15 @@ public class TreeMapTest {
 
     public static void main(String[] args) {
 
-        TreeSet treeSet=new TreeSet();
+        TreeSet treeSet = new TreeSet();
 
-        TreeMap<Integer,String> treeMap=new TreeMap<>();
-        treeMap.put(1,"1");
-        treeMap.put(3,"1");
-        treeMap.put(5,"1");
-        treeMap.put(2,"1");
-        treeMap.put(4,"1");
-        treeMap.put(6,"1");
+        TreeMap<Integer, String> treeMap = new TreeMap<>();
+        treeMap.put(1, "1");
+        treeMap.put(3, "1");
+        treeMap.put(5, "1");
+        treeMap.put(2, "1");
+        treeMap.put(4, "1");
+        treeMap.put(6, "1");
 
         System.out.println(treeMap.firstKey());//最小的key 1
         System.out.println(treeMap.lastKey());//最大的key 6

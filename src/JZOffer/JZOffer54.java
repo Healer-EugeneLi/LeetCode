@@ -40,28 +40,26 @@ public class JZOffer54 {
      * 方法2：二叉搜索树 中序遍历倒序 即 右 根 左  然后遍历到第k个的时候停止遍历
      */
 
-    public int count=0;
-    public int res=0;//最后结果
+    public int count = 0;
+    public int res = 0;//最后结果
 
     public int kthLargest(TreeNode root, int k) {
 
-        help(root,k);
+        help(root, k);
         return res;
     }
 
-    public void help(TreeNode root,int k){
+    public void help(TreeNode root, int k) {
 
-        if (root==null) return;
-        help(root.right,k);
+        if (root == null) return;
+        help(root.right, k);
 
-        if (++count==k){
-            res=root.val;
+        if (++count == k) {
+            res = root.val;
             return;
         }
-        help(root.left,k);
+        help(root.left, k);
     }
-
-
 
 
 }

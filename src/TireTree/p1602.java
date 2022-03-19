@@ -94,13 +94,14 @@ public class p1602 {
     class WordsFrequency {
 
 
-        public HashMap<String,Integer> map=new HashMap<>();
+        public HashMap<String, Integer> map = new HashMap<>();
+
         public WordsFrequency(String[] book) {
 
-            for (String b:book){
+            for (String b : book) {
 
                 Integer orDefault = map.getOrDefault(b, 0);
-                map.put(b,orDefault+=1);
+                map.put(b, orDefault += 1);
             }
         }
 

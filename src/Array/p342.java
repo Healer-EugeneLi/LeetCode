@@ -10,10 +10,10 @@ package Array;
 public class p342 {
     public boolean isPowerOfFour(int n) {
 
-        while(n>0&&n%4==0){
-            n/=4;
+        while (n > 0 && n % 4 == 0) {
+            n /= 4;
         }
-        return n==1;
+        return n == 1;
 
     }
 }

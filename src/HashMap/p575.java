@@ -13,19 +13,18 @@ public class p575 {
 
     public int distributeCandies(int[] candyType) {
 
-        HashSet set=new HashSet();
+        HashSet set = new HashSet();
 
-        int need=0;
-        for (int candy:candyType){
+        int need = 0;
+        for (int candy : candyType) {
             set.add(candy);
         }
 
         int size = set.size();//总种类的数量
         //最多只能有一半
-        int mid=candyType.length/2;
+        int mid = candyType.length / 2;
 
-        return Math.min(mid,size);
-
+        return Math.min(mid, size);
 
 
     }

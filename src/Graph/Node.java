@@ -16,11 +16,12 @@ public class Node {
     public int out;//出度
     public ArrayList<Node> nexts;//当前节点出发能到达的点
     public ArrayList<Edge> edges;//当前节点相连的边
-    public Node(int value){
-        this.value=value;
-        in=0;
-        out=0;
-        nexts=new ArrayList<>();
-        edges=new ArrayList<>();
+
+    public Node(int value) {
+        this.value = value;
+        in = 0;
+        out = 0;
+        nexts = new ArrayList<>();
+        edges = new ArrayList<>();
     }
 }

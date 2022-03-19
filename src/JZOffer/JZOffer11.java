@@ -11,19 +11,19 @@ public class JZOffer11 {
 
     public int minArray(int[] numbers) {
 
-        int left=0,right=numbers.length-1;
+        int left = 0, right = numbers.length - 1;
 
-        while (left<right){
+        while (left < right) {
 
-            int middle=left+((right-left)>>1);
+            int middle = left + ((right - left) >> 1);
 
-            if (numbers[middle]>numbers[right]){
+            if (numbers[middle] > numbers[right]) {
                 //中间比右指针的值大 说明最小值在右侧
-                left=middle+1;
-            }else if (numbers[middle]<numbers[right]){
+                left = middle + 1;
+            } else if (numbers[middle] < numbers[right]) {
                 //最小值在左侧 或者中间
-                right=middle;
-            }else
+                right = middle;
+            } else
                 right--;
 
         }

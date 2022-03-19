@@ -16,18 +16,19 @@ public class JZOffer63 {
      * 也就是说 当前第i天的最大利润=前i-1天获得的最大利润与当前股票价格减去前i-1天的最低价格的最大值
      * 优化 维护一个最小值cost 然后更新利润profit
      * profit=max(profit,min(prices[i]-cost))
+     *
      * @param prices
      * @return
      */
     public int maxProfit(int[] prices) {
 
 
-        int cost=Integer.MAX_VALUE;
-        int profit=0;
+        int cost = Integer.MAX_VALUE;
+        int profit = 0;
 
-        for (int price:prices){
-            cost=Math.min(price,cost);
-            profit=Math.max(profit,price-cost);
+        for (int price : prices) {
+            cost = Math.min(price, cost);
+            profit = Math.max(profit, price - cost);
         }
         return profit;
     }
@@ -53,10 +54,6 @@ public class JZOffer63 {
 //        }
 //        return res;
 //    }
-
-
-
-
 
 
 }

@@ -60,28 +60,30 @@ public class p62 {
      * 因此可以设置两重循环 外层循环为n长度 即列长度大小 初始数组全为1 内层为行数 即需要更新m行
      * 然后每次到达当前行的时候 将左边加过来的数据 直接加到当前这个dp[i]位置
      * dp[i]+=dp[i-1]
+     *
      * @param m
      * @param n
      * @return
      */
     public int uniquePaths(int m, int n) {
 
-        int dp[]=new int[n];
+        int dp[] = new int[n];
 
-        for (int j=0;j<n;j++) dp[j]=1;
-        for (int i=1;i<m;i++){//总的有m行 因为第一行已经赋值好了 所以从i=1行开始
-            for (int j=1;j<n;j++){
-                dp[j]+=dp[j-1];
+        for (int j = 0; j < n; j++) dp[j] = 1;
+        for (int i = 1; i < m; i++) {//总的有m行 因为第一行已经赋值好了 所以从i=1行开始
+            for (int j = 1; j < n; j++) {
+                dp[j] += dp[j - 1];
             }
 
         }
 
-        return dp[n-1];
+        return dp[n - 1];
     }
+
     public static void main(String[] args) {
 
-        int m=3,n=7;
-        p62 t=new p62();
+        int m = 3, n = 7;
+        p62 t = new p62();
         int res = t.uniquePaths(m, n);
         System.out.println(res);
     }

@@ -6,10 +6,10 @@ package JZOffer;
  * @Author EugeneLi
  * @Date: 2022/1/28
  * @Time: 10:02
- *
+ * <p>
  * 剪绳子-1
- *将n剪成大于1段数目的绳子
- *使得绳子长度乘积最大
+ * 将n剪成大于1段数目的绳子
+ * 使得绳子长度乘积最大
  */
 public class JZOffer14_1 {
 
@@ -35,7 +35,8 @@ public class JZOffer14_1 {
 //    }
 
     /**
-     *贪心思路 尽可能剪出长度为3的绳子
+     * 贪心思路 尽可能剪出长度为3的绳子
+     *
      * @param n
      * @return
      */
@@ -44,16 +45,16 @@ public class JZOffer14_1 {
         //长度为2时 结果1
         //     3      2
 
-        if (n<4) return n-1;
+        if (n < 4) return n - 1;
 
-        int res=1;
+        int res = 1;
 
-        while (n>4){
-            res*=3;
-            n-=3;
+        while (n > 4) {
+            res *= 3;
+            n -= 3;
         }
 
-        return res*n;
+        return res * n;
 
     }
 }

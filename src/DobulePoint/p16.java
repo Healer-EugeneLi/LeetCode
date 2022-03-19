@@ -42,24 +42,24 @@ public class p16 {
 
     public int threeSumClosest(int[] nums, int target) {
 
-        int length=nums.length;
+        int length = nums.length;
         Arrays.sort(nums);//先排序
-        int left=0,right=0;
-        int nearTarget=nums[0]+nums[1]+nums[2];
-        for (int i=0;i<length-2;i++){
+        int left = 0, right = 0;
+        int nearTarget = nums[0] + nums[1] + nums[2];
+        for (int i = 0; i < length - 2; i++) {
 
-            left=i+1;
-            right=nums.length-1;
-            while (left<right){
+            left = i + 1;
+            right = nums.length - 1;
+            while (left < right) {
 
-                int sum=nums[i]+nums[left]+nums[right];
-                if (Math.abs(sum-target)<Math.abs(nearTarget-target)){
-                    nearTarget=sum;
+                int sum = nums[i] + nums[left] + nums[right];
+                if (Math.abs(sum - target) < Math.abs(nearTarget - target)) {
+                    nearTarget = sum;
                 }
-                if (sum==target) return sum;
-                else if (sum>target){
+                if (sum == target) return sum;
+                else if (sum > target) {
                     right--;
-                }else left++;
+                } else left++;
             }
 
         }
@@ -68,9 +68,9 @@ public class p16 {
     }
 
     public static void main(String[] args) {
-        int arr[]={0,1,2,-3};
+        int arr[] = {0, 1, 2, -3};
 
-        p16 p16=new p16();
+        p16 p16 = new p16();
         int res = p16.threeSumClosest(arr, 1);
     }
 }

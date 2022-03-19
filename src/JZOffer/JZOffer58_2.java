@@ -11,6 +11,7 @@ public class JZOffer58_2 {
 
     /**
      * 左旋转字符串
+     *
      * @param s
      * @param n
      * @return
@@ -18,15 +19,15 @@ public class JZOffer58_2 {
     public String reverseLeftWords(String s, int n) {
 
 
-        char resChars[]=new char[s.length()];
+        char resChars[] = new char[s.length()];
         char[] chars = s.toCharArray();
         //对于index位置的字符 其左旋转n之后 其位置为  (  index+s.length()-n )% s.length()
-        for (int i=0;i<chars.length;i++){
-            int pos=(i+s.length()-n)%s.length();
-            resChars[pos]=chars[i];
+        for (int i = 0; i < chars.length; i++) {
+            int pos = (i + s.length() - n) % s.length();
+            resChars[pos] = chars[i];
         }
 
-        String res=String.valueOf(resChars);
+        String res = String.valueOf(resChars);
         return res;
 
     }
@@ -34,15 +35,15 @@ public class JZOffer58_2 {
     public static void main(String[] args) {
 
         String s = "abcdefg";
-        int n=2;
-        JZOffer58_2 t=new JZOffer58_2();
+        int n = 2;
+        JZOffer58_2 t = new JZOffer58_2();
 
         String s1 = t.reverseLeftWords(s, n);
         System.out.println(s1);
 
-        String result="";
-        for (int i=n;i<n+s.length();i++){
-            result+=s.charAt(i%s.length());
+        String result = "";
+        for (int i = n; i < n + s.length(); i++) {
+            result += s.charAt(i % s.length());
         }
         System.out.println(result);
     }

@@ -6,6 +6,8 @@ package Listnode;
  * @Author EugeneLi
  * @Date: 2021/5/12
  * @Time: 20:19
+ * <p>
+ * Definition for singly-linked list.
  */
 
 /**
@@ -37,31 +39,31 @@ package Listnode;
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 
-        ListNode pre=new ListNode(0);//预设一个头指针 指向头结点
-        ListNode cur=pre;//当前节点 一开始也是指向pre
+        ListNode pre = new ListNode(0);//预设一个头指针 指向头结点
+        ListNode cur = pre;//当前节点 一开始也是指向pre
 
-        int add=0;//记录进位
+        int add = 0;//记录进位
 
-        while(l1!=null||l2!=null){
+        while (l1 != null || l2 != null) {
             //使用||才能使得当一个链表为空的时候 另一个不为空 可以继续进行相加
 
-            int a= l1==null ? 0: l1.val;
-            int b=l2==null?0:l2.val;
+            int a = l1 == null ? 0 : l1.val;
+            int b = l2 == null ? 0 : l2.val;
 
-            int sum=a+b+add;//两数相加
-            add=sum/10;//获取进位
-            sum=sum%10;//进位之后剩下的值
+            int sum = a + b + add;//两数相加
+            add = sum / 10;//获取进位
+            sum = sum % 10;//进位之后剩下的值
 
-            cur.next=new ListNode(sum);//创建一个新的结点
-            cur=cur.next;//当前指针移到新的结点
+            cur.next = new ListNode(sum);//创建一个新的结点
+            cur = cur.next;//当前指针移到新的结点
 
-            if(l1!=null) l1=l1.next;
-            if(l2!=null) l2=l2.next;
+            if (l1 != null) l1 = l1.next;
+            if (l2 != null) l2 = l2.next;
 
         }
 
-        if(add!=0)
-            cur.next=new ListNode(add);//如果最后有进位值  新增一个节点
+        if (add != 0)
+            cur.next = new ListNode(add);//如果最后有进位值  新增一个节点
         return pre.next;//返回预设的头指针的下一个节点 才是真的头节点
 
 
@@ -72,21 +74,21 @@ public class TwoNumberSum {
 
     public static void main(String[] args) {
 
-        ListNode h1=new ListNode(7);
-        ListNode head=h1;
-        h1.next=new ListNode(8);
-        h1=h1.next;
-        h1.next=new ListNode(9);
+        ListNode h1 = new ListNode(7);
+        ListNode head = h1;
+        h1.next = new ListNode(8);
+        h1 = h1.next;
+        h1.next = new ListNode(9);
 
-        ListNode h2=new ListNode(3);
-        h2.next=new ListNode(2);
+        ListNode h2 = new ListNode(3);
+        h2.next = new ListNode(2);
 
-        Solution s=new Solution();
+        Solution s = new Solution();
         ListNode listNode = s.addTwoNumbers(head, h2);
 
-        while (listNode!=null){
+        while (listNode != null) {
             System.out.println(listNode.val);
-            listNode=listNode.next;
+            listNode = listNode.next;
         }
 
     }

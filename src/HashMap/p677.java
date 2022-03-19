@@ -16,21 +16,22 @@ public class p677 {
 
     class MapSum {
 
-        Map <String,Integer>map;
+        Map<String, Integer> map;
+
         public MapSum() {
 
-            map=new HashMap<String,Integer>();
+            map = new HashMap<String, Integer>();
         }
 
         public void insert(String key, int val) {
-            map.put(key,val);
+            map.put(key, val);
         }
 
         public int sum(String prefix) {
-            int res=0;
-            for (String key:map.keySet()){
+            int res = 0;
+            for (String key : map.keySet()) {
                 if (key.startsWith(prefix))
-                    res+=map.get(key);
+                    res += map.get(key);
             }
             return res;
         }

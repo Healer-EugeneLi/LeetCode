@@ -23,7 +23,6 @@ import java.util.Scanner;
 public class Knaspack01 {
 
 
-
     //0-1背包问题 二维dp 无优化版本
     public static void main(String[] args) {
 
@@ -31,38 +30,38 @@ public class Knaspack01 {
         int n;//物品数量
         int weight[];//物品重量
         int value[];//物品价值
-        Scanner scanner=new Scanner(System.in);
-        bagSize=scanner.nextInt();
-        n=scanner.nextInt();
+        Scanner scanner = new Scanner(System.in);
+        bagSize = scanner.nextInt();
+        n = scanner.nextInt();
 
         //初始化数组
-        weight=new int[n+1];
-        value=new int[n+1];
+        weight = new int[n + 1];
+        value = new int[n + 1];
         //从i=1开始存放n个物品
-        for (int i=1;i<=n;i++){
-            weight[i]=scanner.nextInt();
-            value[i]=scanner.nextInt();
+        for (int i = 1; i <= n; i++) {
+            weight[i] = scanner.nextInt();
+            value[i] = scanner.nextInt();
         }
 
-        int dp[][]=new int[n+1][bagSize+1];
+        int dp[][] = new int[n + 1][bagSize + 1];
         //使用二维数组 dp[i][j] 背包容量为j的时候 存放上1到i物品之后的最大价值
-        for (int i=1;i<=n;i++){
-            for (int j=1;j<=bagSize;j++){
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= bagSize; j++) {
 
-                if (j<weight[i]){
+                if (j < weight[i]) {
                     //背包重量不足以放下第i个物品 此时价值等于不放入第i个物品的价值
-                    dp[i][j]=dp[i-1][j];
-                }else {
+                    dp[i][j] = dp[i - 1][j];
+                } else {
                     //背包容量足够的时候 考虑两种情况 放与不放
-                    dp[i][j]=Math.max(dp[i-1][j],dp[i-1][j-weight[i]]+value[i]);
+                    dp[i][j] = Math.max(dp[i - 1][j], dp[i - 1][j - weight[i]] + value[i]);
                 }
             }
         }
         //输出dp表的情况
         System.out.println("dp表情况输出：");
-        for(int i=0;i<=n;i++){
-            for (int j=0;j<=bagSize;j++){
-                System.out.print(dp[i][j]+"  ");
+        for (int i = 0; i <= n; i++) {
+            for (int j = 0; j <= bagSize; j++) {
+                System.out.print(dp[i][j] + "  ");
             }
             System.out.println();
         }

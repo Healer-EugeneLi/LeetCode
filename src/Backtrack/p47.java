@@ -13,40 +13,41 @@ import java.util.List;
  */
 public class p47 {
 
-    public List<List<Integer>> res=new ArrayList<>();
+    public List<List<Integer>> res = new ArrayList<>();
 
-    public void backtrack(int nums[],List<Integer> path,boolean used[]){
+    public void backtrack(int nums[], List<Integer> path, boolean used[]) {
 
-        if (nums.length==path.size()){
+        if (nums.length == path.size()) {
             res.add(new ArrayList<>(path));
         }
 
-        for (int i=0;i<nums.length;i++){
+        for (int i = 0; i < nums.length; i++) {
 
-            if (!used[i]){
+            if (!used[i]) {
 
-                if (i>0&&nums[i]==nums[i-1]&&!used[i-1]){
+                if (i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) {
                     //现在这个数等于前一个数 并且前一个数是没有被用过 实际就是表面这个已经在之前使用过 并且结果已经加好了
-                   continue;
+                    continue;
                 }
-                used[i]=true;
+                used[i] = true;
                 path.add(nums[i]);
-                backtrack(nums,path,used);
-                used[i]=false;
-                path.remove(path.size()-1);
+                backtrack(nums, path, used);
+                used[i] = false;
+                path.remove(path.size() - 1);
             }
         }
     }
+
     public List<List<Integer>> permuteUnique(int[] nums) {
 
 
-        boolean []used=new boolean[nums.length];
-        for (int i=0;i< nums.length;i++)
-            used[i]=false;
+        boolean[] used = new boolean[nums.length];
+        for (int i = 0; i < nums.length; i++)
+            used[i] = false;
         Arrays.sort(nums);
-        List<Integer> path=new ArrayList<>();
+        List<Integer> path = new ArrayList<>();
 
-        backtrack(nums,path,used);
+        backtrack(nums, path, used);
         return res;
 
     }

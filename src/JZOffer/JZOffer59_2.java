@@ -21,8 +21,8 @@ public class JZOffer59_2 {
 
         public MaxQueue() {
 
-            queue=new LinkedList<>();//存放数据进出
-            deque=new LinkedList<>();//辅助队列 维持一个非单调递减的队列
+            queue = new LinkedList<>();//存放数据进出
+            deque = new LinkedList<>();//辅助队列 维持一个非单调递减的队列
         }
 
         public int max_value() {
@@ -37,7 +37,7 @@ public class JZOffer59_2 {
             //存值的队列内也需要插入值
             queue.add(value);
             //当非单调递减的队列 队尾的值小于value 不断的往后弹出
-            while (!deque.isEmpty()&&deque.peekLast()<value){
+            while (!deque.isEmpty() && deque.peekLast() < value) {
                 deque.pollLast();
             }
             deque.addLast(value);

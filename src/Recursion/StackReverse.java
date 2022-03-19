@@ -20,28 +20,28 @@ public class StackReverse {
      * 3 最后返回的是3  同时栈里的数据是
      * 1
      * 2
+     *
      * @param stack
      * @return
      */
-    public static int getBottom(Stack<Integer> stack){
+    public static int getBottom(Stack<Integer> stack) {
 
-        int result=stack.pop();
-        if (stack.isEmpty()){
+        int result = stack.pop();
+        if (stack.isEmpty()) {
             return result;
-        }else {
-            int last=getBottom(stack);
+        } else {
+            int last = getBottom(stack);
             stack.push(result);
             return last;
         }
     }
 
 
+    public static void reverse(Stack<Integer> stack) {
 
-    public static void reverse(Stack<Integer> stack){
+        if (stack.isEmpty()) return;
 
-        if (stack.isEmpty())return;
-
-        int bottom=getBottom(stack);
+        int bottom = getBottom(stack);
         reverse(stack);
         stack.push(bottom);
     }

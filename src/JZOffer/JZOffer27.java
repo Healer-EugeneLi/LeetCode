@@ -8,7 +8,7 @@ import java.util.Stack;
  * @Author EugeneLi
  * @Date: 2022/2/8
  * @Time: 22:20
- *
+ * <p>
  * 二叉树的镜像；输入一个二叉树，输出它的镜像
  */
 public class JZOffer27 {
@@ -46,12 +46,13 @@ public class JZOffer27 {
 
     /**
      * 使用递归的方法来进行镜像翻转
+     *
      * @param root
      * @return
      */
     public TreeNode mirrorTree(TreeNode root) {
 
-        if (root==null) return null;
+        if (root == null) return null;
 
         //分别将左子树 右子树进行翻转 当递归到最后的时候 子树不断的进行镜像翻转 最后根节点交换两个左右子树即可
 
@@ -62,8 +63,8 @@ public class JZOffer27 {
         TreeNode right = mirrorTree(root.right);
 
         //重新指向 也就是交换左右子树
-        root.left=right;
-        root.right=left;
+        root.left = right;
+        root.right = left;
 
         //返回根节点
         return root;

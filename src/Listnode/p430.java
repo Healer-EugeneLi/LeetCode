@@ -13,6 +13,7 @@ class Node {
     public Node next;
     public Node child;
 };
+
 public class p430 {
 
 //    public Node flatten(Node head) {
@@ -51,25 +52,25 @@ public class p430 {
     private Node dfs(Node head) {
 
 
-        Node last=head;
-        while (head!=null){
+        Node last = head;
+        while (head != null) {
 
-            if (head.child==null){
-                last=head;
-                head=head.next;
-            }else {
+            if (head.child == null) {
+                last = head;
+                head = head.next;
+            } else {
 
-                Node temp=head.next;
+                Node temp = head.next;
                 Node childLast = dfs(head.child);
-                head.next=head.child;
-                head.child.prev=head;
-                head.child=null;
+                head.next = head.child;
+                head.child.prev = head;
+                head.child = null;
 
-                if (childLast!=null) childLast.next=temp;
-                if (temp!=null) temp.prev=childLast;
+                if (childLast != null) childLast.next = temp;
+                if (temp != null) temp.prev = childLast;
 
-                last=head;
-                head=childLast;
+                last = head;
+                head = childLast;
             }
 
         }

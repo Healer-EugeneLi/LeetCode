@@ -65,13 +65,14 @@ public class P1926 {
 //
 //    }
 
-    class Point{
+    class Point {
 
-        int x,y,step;//step为入口到当前点的步数
-        public Point(int x,int y,int step){
-            this.x=x;
-            this.y=y;
-            this.step=step;
+        int x, y, step;//step为入口到当前点的步数
+
+        public Point(int x, int y, int step) {
+            this.x = x;
+            this.y = y;
+            this.step = step;
         }
     }
 
@@ -80,32 +81,32 @@ public class P1926 {
     }
 
     private int bfs(char[][] maze, int i, int j) {
-        int dx[]={1,0,-1,0};
-        int dy[]={0,1,0,-1};//下右上左
+        int dx[] = {1, 0, -1, 0};
+        int dy[] = {0, 1, 0, -1};//下右上左
 
-        Queue<Point> queue=new LinkedList();
-        queue.offer(new Point(i,j,0));
+        Queue<Point> queue = new LinkedList();
+        queue.offer(new Point(i, j, 0));
 
-        int row=maze.length;
-        int col=maze[0].length;
-        maze[i][j]='+';//标记已经访问过
+        int row = maze.length;
+        int col = maze[0].length;
+        maze[i][j] = '+';//标记已经访问过
 
-        while (!queue.isEmpty()){
+        while (!queue.isEmpty()) {
 
             Point poll = queue.poll();
             //不为入口 且是边界
-            if (!(poll.x==i&&poll.y==j)&&(poll.x==0||poll.x==row-1||poll.y==0||poll.y==col-1)){
+            if (!(poll.x == i && poll.y == j) && (poll.x == 0 || poll.x == row - 1 || poll.y == 0 || poll.y == col - 1)) {
                 return poll.step;//因为使用的是bfs所以找到的肯定是答案
             }
             //枚举四个方向
-            for (int k=0;k<dx.length;k++){
+            for (int k = 0; k < dx.length; k++) {
 
-                int nextX=poll.x+dx[k];
-                int nextY=poll.y+dy[k];
+                int nextX = poll.x + dx[k];
+                int nextY = poll.y + dy[k];
                 //没越界 且没有访问过
-                if (nextX>=0&&nextX<row&&nextY>=0&&nextY<col&&maze[nextX][nextY]=='.'){
-                    queue.offer(new Point(nextX,nextY,poll.step+1));
-                    maze[nextX][nextY]='+';//标记为已访问过
+                if (nextX >= 0 && nextX < row && nextY >= 0 && nextY < col && maze[nextX][nextY] == '.') {
+                    queue.offer(new Point(nextX, nextY, poll.step + 1));
+                    maze[nextX][nextY] = '+';//标记为已访问过
                 }
             }
         }
@@ -116,11 +117,11 @@ public class P1926 {
 
 
     public static void main(String[] args) {
-        char[][] chars={
-            {'+','+','.','+'}, {'.','.','.','+'}, {'+','+','+','.'},
+        char[][] chars = {
+                {'+', '+', '.', '+'}, {'.', '.', '.', '+'}, {'+', '+', '+', '.'},
         };
 
-        P1926 t=new P1926();
+        P1926 t = new P1926();
         int res = t.nearestExit(chars, new int[]{1, 2});
         System.out.println(res);
     }

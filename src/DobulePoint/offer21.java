@@ -10,29 +10,29 @@ package DobulePoint;
  */
 public class offer21 {
 
-    public void swap(int arr[],int i,int j){
-        if (i!=j){
-            arr[i]=arr[i]^arr[j];
-            arr[j]=arr[i]^arr[j];
-            arr[i]=arr[i]^arr[j];
+    public void swap(int arr[], int i, int j) {
+        if (i != j) {
+            arr[i] = arr[i] ^ arr[j];
+            arr[j] = arr[i] ^ arr[j];
+            arr[i] = arr[i] ^ arr[j];
         }
     }
 
     public int[] exchange(int[] nums) {
 
-        if (nums.length==0||nums.length==1) return nums;
-        int left=0,right=nums.length-1;
+        if (nums.length == 0 || nums.length == 1) return nums;
+        int left = 0, right = nums.length - 1;
 
-        while (left<right){
+        while (left < right) {
 
-            if (nums[left]%2==0&&nums[right]%2==1){
+            if (nums[left] % 2 == 0 && nums[right] % 2 == 1) {
                 //交换两个位置
-                swap(nums,left,right);
+                swap(nums, left, right);
                 left++;
                 right--;
-            }else if (nums[left]%2==1) {
+            } else if (nums[left] % 2 == 1) {
                 left++;
-            }else if (nums[right]%2==0)
+            } else if (nums[right] % 2 == 0)
                 right--;
         }
 
@@ -42,8 +42,8 @@ public class offer21 {
 
     public static void main(String[] args) {
 
-        int nums[]={1,2,3,4,3,5,1,2,3,1,44,1};
-        offer21 offer21=new offer21();
+        int nums[] = {1, 2, 3, 4, 3, 5, 1, 2, 3, 1, 44, 1};
+        offer21 offer21 = new offer21();
         int[] exchange = offer21.exchange(nums);
         System.out.println();
     }

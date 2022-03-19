@@ -23,7 +23,7 @@ public class p231 {
 
     public boolean isPowerOfTwo(int n) {
 
-        return n>0&&1073741824%n==0;
+        return n > 0 && 1073741824 % n == 0;
 
     }
 
@@ -37,9 +37,9 @@ public class p231 {
 //            System.out.println(res);
 //
 //        }
-        int n=1;
-        for (int i=0;i<16;i++){
-            n*=4;
+        int n = 1;
+        for (int i = 0; i < 16; i++) {
+            n *= 4;
             System.out.println(n);
         }
 

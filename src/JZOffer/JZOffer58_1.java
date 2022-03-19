@@ -12,12 +12,12 @@ public class JZOffer58_1 {
 
         //先遍历s 把其中的空格去掉
         String[] strings = s.split(" ");
-        String res="";
+        String res = "";
 
-        for (int i=strings.length-1;i>=0;i--){
+        for (int i = strings.length - 1; i >= 0; i--) {
 
             if (strings[i].equals("")) continue;
-            res+=strings[i]+" ";
+            res += strings[i] + " ";
         }
 
         return res.trim();
@@ -27,9 +27,9 @@ public class JZOffer58_1 {
 
     public static void main(String[] args) {
 
-        String s ="a good   example";
+        String s = "a good   example";
 
-        JZOffer58_1 t=new JZOffer58_1();
+        JZOffer58_1 t = new JZOffer58_1();
         String res = t.reverseWords(s);
         System.out.println(res);
 //        String[] s1 = s.split(" ");

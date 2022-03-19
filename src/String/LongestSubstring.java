@@ -14,30 +14,30 @@ import java.util.Map;
 class Solution {
     public int lengthOfLongestSubstring(String s) {
 
-        int left=0;
-        int right=0;
-        int max=0;
+        int left = 0;
+        int right = 0;
+        int max = 0;
 
 //        if(s.equals(" ")) return 1;
-        if(s.length()==1) return 1;
-        if(s.isEmpty())
+        if (s.length() == 1) return 1;
+        if (s.isEmpty())
             return 0;
 
-        char a[]=s.toCharArray();// "pwwkew"
-        Map<Character,Integer> map=new HashMap<>();//存放这个区间内字符对应出现的次数
+        char a[] = s.toCharArray();// "pwwkew"
+        Map<Character, Integer> map = new HashMap<>();//存放这个区间内字符对应出现的次数
 
-        while (right<s.length()){//当右指针还在范围内
+        while (right < s.length()) {//当右指针还在范围内
 
-            int num=map.getOrDefault(a[right],0);//判断当前区间这个字符出现的次数
-            map.put(a[right],num+=1);
+            int num = map.getOrDefault(a[right], 0);//判断当前区间这个字符出现的次数
+            map.put(a[right], num += 1);
 
-            while (map.getOrDefault(a[right],0)>1){
+            while (map.getOrDefault(a[right], 0) > 1) {
                 //表明已有重复字符
-                int old=map.getOrDefault(a[left],0);
-                map.put(a[left],old-1);
+                int old = map.getOrDefault(a[left], 0);
+                map.put(a[left], old - 1);
                 left++;
             }
-            max=Math.max(max,right-left+1);
+            max = Math.max(max, right - left + 1);
             right++;
 
         }
@@ -84,7 +84,7 @@ class Solution {
 public class LongestSubstring {
 
     public static void main(String[] args) {
-        String str=  "pwwkew";
+        String str = "pwwkew";
 
 //        Sort.Solution s =new Sort.Solution();
 //        int res = s.lengthOfLongestSubstring(str);

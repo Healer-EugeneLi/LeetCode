@@ -40,23 +40,24 @@ public class JZOffer50 {
 
     /**
      * 哈希表简洁写法
+     *
      * @param s
      * @return
      */
     public char firstUniqChar(String s) {
 
-        HashMap<Character,Boolean> map=new HashMap<>();
+        HashMap<Character, Boolean> map = new HashMap<>();
 
         char[] chars = s.toCharArray();
-        for (int i=0;i<chars.length;i++){
-            char c=chars[i];
-            map.put(c,!map.containsKey(c));//如果已经存在的话 那么就是true 取反之后变成false
+        for (int i = 0; i < chars.length; i++) {
+            char c = chars[i];
+            map.put(c, !map.containsKey(c));//如果已经存在的话 那么就是true 取反之后变成false
         }
         //最后map中存在的就只有出现过一次的字符 此时再重新遍历字符串 先遍历到的在map中存在的便是第一个出现的只出现一次的的字符
-       for (char c:chars){
-           if (map.containsKey(c)&&map.get(c)==true)
-               return c;
-       }
-       return ' ';
+        for (char c : chars) {
+            if (map.containsKey(c) && map.get(c) == true)
+                return c;
+        }
+        return ' ';
     }
 }

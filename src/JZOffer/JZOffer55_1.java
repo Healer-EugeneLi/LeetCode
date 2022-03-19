@@ -31,30 +31,31 @@ public class JZOffer55_1 {
 
     /**
      * 使用层序遍历
+     *
      * @param root
      * @return
      */
     public int maxDepth(TreeNode root) {
 
-        if (root==null) return 0;
-        int depth=0;
-        Queue<TreeNode> queue=new LinkedList<>();
+        if (root == null) return 0;
+        int depth = 0;
+        Queue<TreeNode> queue = new LinkedList<>();
 
         queue.add(root);
-        while (!queue.isEmpty()){
-            int size=queue.size();
+        while (!queue.isEmpty()) {
+            int size = queue.size();
             depth++;//每一层深度加1
             //将当前层的所有结点处理完
-            for (int i=0;i<size;i++){
+            for (int i = 0; i < size; i++) {
                 TreeNode poll = queue.poll();//弹出头结点
                 //添加子节点
-                if (poll.left!=null)
+                if (poll.left != null)
                     queue.add(poll.left);
-                if (poll.right!=null)
+                if (poll.right != null)
                     queue.add(poll.right);
             }
 
         }
-       return depth;
+        return depth;
     }
 }

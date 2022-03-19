@@ -12,14 +12,15 @@ import java.util.List;
  */
 public class p113 {
 
-    List<List<Integer>> res=new ArrayList<>();
+    List<List<Integer>> res = new ArrayList<>();
+
     public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
 
-        if (root==null) return res;
+        if (root == null) return res;
 
-        List<Integer> path=new ArrayList<>();//路径
+        List<Integer> path = new ArrayList<>();//路径
 
-        traversal(root,targetSum,path);
+        traversal(root, targetSum, path);
         return res;
 
 
@@ -30,26 +31,25 @@ public class p113 {
         path.add(root.val);
 
         //当满足条件的时候
-        if (root.left==null&&root.right==null){
-            if (targetSum-root.val==0){
+        if (root.left == null && root.right == null) {
+            if (targetSum - root.val == 0) {
                 res.add(new ArrayList(path));
 
             }
             return;
         }
 
-        if (root.left!=null){
+        if (root.left != null) {
             //遍历左子树
-            traversal(root.left,targetSum-root.val,path);
-            path.remove(path.size()-1);
+            traversal(root.left, targetSum - root.val, path);
+            path.remove(path.size() - 1);
         }
 
-        if (root.right!=null){
+        if (root.right != null) {
             //遍历右子树
-            traversal(root.right,targetSum-root.val,path);
-            path.remove(path.size()-1);
+            traversal(root.right, targetSum - root.val, path);
+            path.remove(path.size() - 1);
         }
-
 
 
     }

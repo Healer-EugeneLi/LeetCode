@@ -84,60 +84,59 @@ public class p148 {
 
     public ListNode sortList(ListNode head) {
 
-        if (head==null||head.next==null) return head;
+        if (head == null || head.next == null) return head;
 
         //1.先统计链表的长度
-        ListNode node=head;
-        int length=0;
-        while (node!=null){
+        ListNode node = head;
+        int length = 0;
+        while (node != null) {
             length++;
-            node=node.next;
+            node = node.next;
         }
         //2.初始化引入虚拟结点
-        ListNode dummy=new ListNode(0);
-        dummy.next=head;
-
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
 
 
         //3.每次将链表拆分成若干个长度subLen的子链表 并按照每两个子链表移除进行合并
-        for (int subLen=1;subLen<length;subLen<<=1){
+        for (int subLen = 1; subLen < length; subLen <<= 1) {
 
-            ListNode pre=dummy;
-            ListNode curr=dummy.next;//curr用于记录拆分链表的位置
+            ListNode pre = dummy;
+            ListNode curr = dummy.next;//curr用于记录拆分链表的位置
 
-            while (curr!=null){
+            while (curr != null) {
                 //如果链表没有拆完
 
                 //拆分subLen长度的链表1
-                ListNode head_1=curr;
-                for (int i=1;i<subLen&&curr!=null&&curr.next!=null;i++){
-                    curr=curr.next;
+                ListNode head_1 = curr;
+                for (int i = 1; i < subLen && curr != null && curr.next != null; i++) {
+                    curr = curr.next;
                 }
 
-                ListNode head_2=curr.next;
-                curr.next=null;//断开
-                curr=head_2;
+                ListNode head_2 = curr.next;
+                curr.next = null;//断开
+                curr = head_2;
                 //拆分subLen长度的链表2
-                for (int i=1;i<subLen&&curr!=null&&curr.next!=null;i++){
-                    curr=curr.next;
+                for (int i = 1; i < subLen && curr != null && curr.next != null; i++) {
+                    curr = curr.next;
                 }
 
                 //再次断开 第2个链表最后的next连接
-                ListNode next=null;
-                if (curr!=null){
-                    next=curr.next;//拆分了两个链表之后的剩下的链表的头
-                    curr.next=null;//断开连接
+                ListNode next = null;
+                if (curr != null) {
+                    next = curr.next;//拆分了两个链表之后的剩下的链表的头
+                    curr.next = null;//断开连接
                 }
 
                 //合并两个subLen长度的有序链表
                 ListNode merge = merge(head_1, head_2);
-                pre.next=merge;//指向排序好的链表的头 这样就保证了拆分完之后合并起来还是一条完整的链表
+                pre.next = merge;//指向排序好的链表的头 这样就保证了拆分完之后合并起来还是一条完整的链表
 
                 //将pre移到subLen*2的位置去
-                while (pre.next!=null){
-                    pre=pre.next;
+                while (pre.next != null) {
+                    pre = pre.next;
                 }
-                curr=next;
+                curr = next;
 
             }
         }
@@ -149,22 +148,22 @@ public class p148 {
 
     private ListNode merge(ListNode left, ListNode right) {
 
-        ListNode dummy=new ListNode(0);
-        ListNode res=dummy;
+        ListNode dummy = new ListNode(0);
+        ListNode res = dummy;
 
-        while (left!=null&&right!=null){
+        while (left != null && right != null) {
 
-            if (left.val<=right.val){
-                dummy.next=new ListNode(left.val);
-                left=left.next;
-            }else{
-                dummy.next=new ListNode(right.val);
-                right=right.next;
+            if (left.val <= right.val) {
+                dummy.next = new ListNode(left.val);
+                left = left.next;
+            } else {
+                dummy.next = new ListNode(right.val);
+                right = right.next;
             }
-            dummy=dummy.next;
+            dummy = dummy.next;
         }
 
-        dummy.next=left!=null?left:right;
+        dummy.next = left != null ? left : right;
 
         return res.next;
     }

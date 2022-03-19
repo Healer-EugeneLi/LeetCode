@@ -49,6 +49,7 @@ public class JZOffer52 {
      * pB 遍历headB
      * 当其中一条遍历到结尾 将该指针指向另一条链表的头结点 继续遍历
      * 直到两个指针汇聚
+     *
      * @param headA
      * @param headB
      * @return
@@ -56,24 +57,24 @@ public class JZOffer52 {
 
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
 
-        if (headA==null||headB==null)
+        if (headA == null || headB == null)
             return null;
-       ListNode pA=headA;
-       ListNode pB=headB;
+        ListNode pA = headA;
+        ListNode pB = headB;
 
-       while (pA!=pB){
+        while (pA != pB) {
 
-           if (pA==null)
-               pA=headB;//到达链表结点  指向另一条链表的头结点
-           else
-               pA=pA.next;
+            if (pA == null)
+                pA = headB;//到达链表结点  指向另一条链表的头结点
+            else
+                pA = pA.next;
 
-           if (pB==null)
-               pB=headA;
-           else
-               pB=pB.next;
-       }
-       return pA;
+            if (pB == null)
+                pB = headA;
+            else
+                pB = pB.next;
+        }
+        return pA;
 
     }
 }

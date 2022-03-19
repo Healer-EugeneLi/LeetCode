@@ -11,12 +11,12 @@ import java.util.HashSet;
  * @Time: 20:48
  */
 public class Graph {
-    public HashMap<Integer,Node> nodes;//点集
+    public HashMap<Integer, Node> nodes;//点集
     public HashSet<Edge> edges;//边集
 
 
-    public Graph(){
-        this.nodes=new HashMap<>();
-        this.edges=new HashSet<>();
+    public Graph() {
+        this.nodes = new HashMap<>();
+        this.edges = new HashSet<>();
     }
 }

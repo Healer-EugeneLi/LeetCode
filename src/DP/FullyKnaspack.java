@@ -28,29 +28,29 @@ public class FullyKnaspack {
         int n;//物品数量
         int weight[];//物品重量
         int value[];//物品价值
-        Scanner scanner=new Scanner(System.in);
-        bagSize=scanner.nextInt();
-        n=scanner.nextInt();
+        Scanner scanner = new Scanner(System.in);
+        bagSize = scanner.nextInt();
+        n = scanner.nextInt();
 
         //初始化数组
-        weight=new int[n+1];
-        value=new int[n+1];
+        weight = new int[n + 1];
+        value = new int[n + 1];
         //从i=1开始存放n个物品
-        for (int i=1;i<=n;i++){
-            weight[i]=scanner.nextInt();
-            value[i]=scanner.nextInt();
+        for (int i = 1; i <= n; i++) {
+            weight[i] = scanner.nextInt();
+            value[i] = scanner.nextInt();
         }
 
-        int dp[]=new int[bagSize+1];
+        int dp[] = new int[bagSize + 1];
 
-        for (int i=1;i<=n;i++){
+        for (int i = 1; i <= n; i++) {
 
-            for (int j=bagSize;j>=1;j--){
+            for (int j = bagSize; j >= 1; j--) {
 
-                for (int k=0;k<=j/weight[i];k++){
+                for (int k = 0; k <= j / weight[i]; k++) {
                     //不断进行放入第i个物品 最多可以放入j/weight[i]个
                     //要放入k个这个物品i 就需要腾出k*weight[i]的重量 并且加入这k个的价值
-                    dp[j]=Math.max(dp[j],dp[j-k*weight[i]]+value[i]*k);
+                    dp[j] = Math.max(dp[j], dp[j - k * weight[i]] + value[i] * k);
                 }
             }
         }

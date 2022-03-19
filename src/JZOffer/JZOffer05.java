@@ -13,13 +13,13 @@ public class JZOffer05 {
     public String replaceSpace(String s) {
 
         char[] chars = s.toCharArray();
-        String res="";
+        String res = "";
 
-        for (int i=0;i<chars.length;i++){
-            if (chars[i]==' ')
-                res+="%20";
+        for (int i = 0; i < chars.length; i++) {
+            if (chars[i] == ' ')
+                res += "%20";
             else
-                res+=chars[i];
+                res += chars[i];
         }
         return res;
 

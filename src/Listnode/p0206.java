@@ -78,51 +78,52 @@ public class p0206 {
 
     /**
      * 逆序右半部分链表  1->3->5->3->1         slow->5 pre->3
-     *      变成两部分：1->3->5 1->3-5
-     *               1->3->5->4->3->1       slow->4 pre->5
-     *      变成两部分：1->3->5 1->3-4
+     * 变成两部分：1->3->5 1->3-5
+     * 1->3->5->4->3->1       slow->4 pre->5
+     * 变成两部分：1->3->5 1->3-4
+     *
      * @param head 复杂度O(n)
      * @return
      */
     //方法3 右半部分链表逆序 进行比较
     public boolean isPalindrome(ListNode head) {
 
-        if (head==null||head.next==null) return true;
-        ListNode dummy=new ListNode();
-        dummy.next=head;
+        if (head == null || head.next == null) return true;
+        ListNode dummy = new ListNode();
+        dummy.next = head;
 
-        ListNode slow=head;
-        ListNode fast=head;
-        ListNode pre=null;
+        ListNode slow = head;
+        ListNode fast = head;
+        ListNode pre = null;
 
         //找中点
-        while (fast!=null&&fast.next!=null){
-            pre=slow;
-            slow=slow.next;
-            fast=fast.next.next;
+        while (fast != null && fast.next != null) {
+            pre = slow;
+            slow = slow.next;
+            fast = fast.next.next;
 
         }
 
         //链表翻转
-        ListNode temp=null;
-        fast=slow;//用来指向后半部分
-        pre.next=null;//前半部分断开
-        pre=null;
+        ListNode temp = null;
+        fast = slow;//用来指向后半部分
+        pre.next = null;//前半部分断开
+        pre = null;
 
-        while (fast!=null){
-            temp=fast.next;
-            fast.next=pre;
-            pre=fast;
-            fast=temp;
+        while (fast != null) {
+            temp = fast.next;
+            fast.next = pre;
+            pre = fast;
+            fast = temp;
         }
 
         //比较链表
-        slow=dummy.next;//前半部分链表头
-        fast=pre;//后半部分链表头
-        while (slow!=null&&fast!=null){
-            if (slow.val!=fast.val) return false;
-            slow=slow.next;
-            fast=fast.next;
+        slow = dummy.next;//前半部分链表头
+        fast = pre;//后半部分链表头
+        while (slow != null && fast != null) {
+            if (slow.val != fast.val) return false;
+            slow = slow.next;
+            fast = fast.next;
         }
 
 

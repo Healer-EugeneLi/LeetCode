@@ -50,44 +50,46 @@ public class JZOffer67 {
 
     /**
      * 优雅的解法
-     *
+     * <p>
      * Integer.MAX_VALUE最大值为 2147483647
      * Integer.MIN_VALUE最小值为 -2147483648
      * 在模拟获得数字的时候 使用res=res*10+chars[i]-'0' 所以可以提前进行判断是否越界
      * 设定一个边界 boundary=Integer.MAX_VALUE/10  当遇到一个数字的时候 并且此时res>boundary 那么已经要越界了
      * 若res==boundary & 这个字符>'7' 也是需要返回Integer.MAX_VALUE 再考虑上前面的符号 对于如果是负数的情况下 越界时最终都需要返回MIN_VALUE
      * 所以无论是 = '8' ,还是 >'8',返回的都是MIN。
+     *
      * @param str
      * @return
      */
 
     public int strToInt(String str) {
 
-        int sign=1,res=0,boundary=Integer.MAX_VALUE/10;
+        int sign = 1, res = 0, boundary = Integer.MAX_VALUE / 10;
 
-        if (str.length()==0) return 0;
-        int i=0;
+        if (str.length() == 0) return 0;
+        int i = 0;
         //如果存在前面有空格 先遍历跳过前面的空格
-        while (str.charAt(i)==' '){
-            if (++i==str.length()) return 0;//遍历完已经到末尾了 说明全是空格
+        while (str.charAt(i) == ' ') {
+            if (++i == str.length()) return 0;//遍历完已经到末尾了 说明全是空格
         }
 
-        if (str.charAt(i)=='-') sign=-1;//标记是负数
-        if (str.charAt(i)=='-'||str.charAt(i)=='+') i++;//开始判断下一个字符
+        if (str.charAt(i) == '-') sign = -1;//标记是负数
+        if (str.charAt(i) == '-' || str.charAt(i) == '+') i++;//开始判断下一个字符
 
-        for (int j=i;j<str.length();j++){
+        for (int j = i; j < str.length(); j++) {
 
-            if (str.charAt(j)<'0'||str.charAt(j)>'9') break;
+            if (str.charAt(j) < '0' || str.charAt(j) > '9') break;
 
-            if (res>boundary||res==boundary&&str.charAt(j)>'7'){
-                return sign==1?Integer.MAX_VALUE:Integer.MIN_VALUE;
+            if (res > boundary || res == boundary && str.charAt(j) > '7') {
+                return sign == 1 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
             }
 
-            res=res*10+(str.charAt(j)-'0');
+            res = res * 10 + (str.charAt(j) - '0');
         }
 
-        return res*sign;
+        return res * sign;
     }
+
     public static void main(String[] args) {
 
 //        String s= "2147483648";

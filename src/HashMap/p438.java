@@ -66,31 +66,32 @@ public class p438 {
 
     /**
      * 使用双指针+滑动窗口来判断
+     *
      * @param s
      * @param p
      * @return
      */
     public List<Integer> findAnagrams(String s, String p) {
 
-        int sLen=s.length();
-        int pLen=p.length();
-        int curNum[]=new int[26];//每次需要判断的该子串的字符频率统计
-        int targetNum[]=new int[26];//目标字符串 字符频率
-        for (int i=0;i<pLen;i++)
-            targetNum[p.charAt(i)-'a']++;
+        int sLen = s.length();
+        int pLen = p.length();
+        int curNum[] = new int[26];//每次需要判断的该子串的字符频率统计
+        int targetNum[] = new int[26];//目标字符串 字符频率
+        for (int i = 0; i < pLen; i++)
+            targetNum[p.charAt(i) - 'a']++;
 
-        int left=0,right=0;
-        List<Integer> res=new ArrayList<>();
+        int left = 0, right = 0;
+        List<Integer> res = new ArrayList<>();
 
-        for (left=0,right=0;right<sLen;right++){
-            curNum[s.charAt(right)-'a']++;//当前字符出现的次数加1
+        for (left = 0, right = 0; right < sLen; right++) {
+            curNum[s.charAt(right) - 'a']++;//当前字符出现的次数加1
 
-            if (right-left+1>pLen){
+            if (right - left + 1 > pLen) {
                 //此时right已经越过需要长度的滑动窗口了
-                curNum[s.charAt(left++)-'a']--;//right所对应的
+                curNum[s.charAt(left++) - 'a']--;//right所对应的
             }
-            if (right-left+1==pLen){
-                if (check(curNum,targetNum))
+            if (right - left + 1 == pLen) {
+                if (check(curNum, targetNum))
                     res.add(left);
             }
 
@@ -100,22 +101,22 @@ public class p438 {
 
     }
 
-    public boolean check(int cur[],int target[]){
+    public boolean check(int cur[], int target[]) {
 
-        for (int i=0;i<26;i++){
-            if (cur[i]!=target[i]) return false;
+        for (int i = 0; i < 26; i++) {
+            if (cur[i] != target[i]) return false;
         }
         return true;
     }
 
     public static void main(String[] args) {
 
-        String s="abab";
-        String p="ab";
+        String s = "abab";
+        String p = "ab";
 
-        p438 t=new p438();
+        p438 t = new p438();
         List<Integer> res = t.findAnagrams(s, p);
-        for (Integer a:res)
+        for (Integer a : res)
             System.out.println(a);
 //        System.out.println(res.stream().toArray());
     }

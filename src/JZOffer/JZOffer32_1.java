@@ -17,25 +17,25 @@ public class JZOffer32_1 {
 
     public int[] levelOrder(TreeNode root) {
 
-        if (root==null) return new int[]{};
+        if (root == null) return new int[]{};
 
-        Queue<TreeNode> queue=new LinkedList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
-        List<Integer> list=new LinkedList<>();
-        while (!queue.isEmpty()){
+        List<Integer> list = new LinkedList<>();
+        while (!queue.isEmpty()) {
 
             TreeNode cur = queue.poll();
             list.add(cur.val);
-            if (cur.left!=null)
+            if (cur.left != null)
                 queue.add(cur.left);
-            if (cur.right!=null)
+            if (cur.right != null)
                 queue.add(cur.right);
 
         }
 
-        int res[]=new int[list.size()];
-        for (int i=0;i<list.size();i++)
-            res[i]=list.get(i);
+        int res[] = new int[list.size()];
+        for (int i = 0; i < list.size(); i++)
+            res[i] = list.get(i);
         return res;
 
     }

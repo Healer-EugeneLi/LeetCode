@@ -39,27 +39,28 @@ public class p42 {
 
     /**
      * 利用动态规划的思想 提前存好当前i两边对应的最大值
+     *
      * @param height
      * @return
      */
     public int trap(int[] height) {
 
-        int leftMax[]=new int[height.length];
-        int rightMax[]=new int[height.length];
+        int leftMax[] = new int[height.length];
+        int rightMax[] = new int[height.length];
 
-        leftMax[0]=height[0];//第一个元素的左边最大值等于本身
-        for (int i=1;i<height.length;i++){
-            leftMax[i]=Math.max(height[i],leftMax[i-1]);
+        leftMax[0] = height[0];//第一个元素的左边最大值等于本身
+        for (int i = 1; i < height.length; i++) {
+            leftMax[i] = Math.max(height[i], leftMax[i - 1]);
         }
 
-        rightMax[height.length-1]=height[height.length-1];//最后一个元素的右边最大值等于本身
-        for (int j=height.length-2;j>=0;j--){
-            rightMax[j]=Math.max(height[j],rightMax[j+1]);
+        rightMax[height.length - 1] = height[height.length - 1];//最后一个元素的右边最大值等于本身
+        for (int j = height.length - 2; j >= 0; j--) {
+            rightMax[j] = Math.max(height[j], rightMax[j + 1]);
         }
 
-        int ans=0;
-        for (int index=0;index<height.length;index++){
-            ans+=Math.min(leftMax[index],rightMax[index])-height[index];
+        int ans = 0;
+        for (int index = 0; index < height.length; index++) {
+            ans += Math.min(leftMax[index], rightMax[index]) - height[index];
         }
         return ans;
     }

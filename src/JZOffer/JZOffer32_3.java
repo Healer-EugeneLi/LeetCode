@@ -63,32 +63,33 @@ public class JZOffer32_3 {
 
     /**
      * 使用res结果的长度来判断奇偶性 同时在从右到左的时候直接使用倒序
+     *
      * @param root
      * @return
      */
     public List<List<Integer>> levelOrder(TreeNode root) {
 
-        List<List<Integer>> res=new LinkedList<>();
+        List<List<Integer>> res = new LinkedList<>();
 
-        Queue<TreeNode> queue=new LinkedList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
 
-        if (root==null) return res;
+        if (root == null) return res;
         queue.add(root);
 
-        while (!queue.isEmpty()){
+        while (!queue.isEmpty()) {
 
-            List<Integer> level=new LinkedList<>();
+            List<Integer> level = new LinkedList<>();
 
-            int size=queue.size();
-            for (int i=0;i<size;i++){
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
                 TreeNode cur = queue.poll();
                 level.add(cur.val);
-                if (cur.left!=null) queue.add(cur.left);
-                if (cur.right!=null) queue.add(cur.right);
+                if (cur.left != null) queue.add(cur.left);
+                if (cur.right != null) queue.add(cur.right);
             }
 
             //表示从右到左
-            if (res.size()%2==1)
+            if (res.size() % 2 == 1)
                 Collections.reverse(level);
             res.add(level);
         }

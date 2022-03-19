@@ -52,42 +52,42 @@ public class JZOffer38 {
 //    }
 
 
-    public List<String> list=new LinkedList<>();
-    public boolean used[]=new boolean[10];
+    public List<String> list = new LinkedList<>();
+    public boolean used[] = new boolean[10];
+
     public String[] permutation(String s) {
 
-        char [] chars=s.toCharArray();
+        char[] chars = s.toCharArray();
         Arrays.sort(chars);//注意先排序
-        dfs(chars,0,"");
+        dfs(chars, 0, "");
 
-        String res[]=new String[list.size()];
+        String res[] = new String[list.size()];
 
-        for (int i=0;i<list.size();i++){
+        for (int i = 0; i < list.size(); i++) {
 
-            res[i]=list.get(i);
+            res[i] = list.get(i);
         }
 
         return res;
 
 
-
     }
 
-    public void  dfs(char chars[],int step,String cur){
+    public void dfs(char chars[], int step, String cur) {
 
-        if (chars.length==step){
+        if (chars.length == step) {
             list.add(new String(cur));
             return;
         }
 
-        for (int i=0;i< chars.length;i++){
+        for (int i = 0; i < chars.length; i++) {
 
-            if(i>0&&used[i-1]==false&&chars[i]==chars[i-1]) continue;
+            if (i > 0 && used[i - 1] == false && chars[i] == chars[i - 1]) continue;
 
-            if (!used[i]){
-                used[i]=true;
-                dfs(chars,step+1,cur+String.valueOf(chars[i]));
-                used[i]=false;
+            if (!used[i]) {
+                used[i] = true;
+                dfs(chars, step + 1, cur + String.valueOf(chars[i]));
+                used[i] = false;
             }
         }
     }

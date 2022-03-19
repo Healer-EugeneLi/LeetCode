@@ -38,19 +38,19 @@ public class JZOffer18 {
 
     public ListNode deleteNode(ListNode head, int val) {
 
-        if (head.val==val) return head.next;
+        if (head.val == val) return head.next;
 
-        ListNode pre=head,cur=head.next;
+        ListNode pre = head, cur = head.next;
 
-        while (cur!=null&&cur.val!=val){
+        while (cur != null && cur.val != val) {
             //当链表还没有遍历完 并且当前节点不等于val
-            pre=cur;
-            cur=cur.next;
+            pre = cur;
+            cur = cur.next;
         }
 
         //此时如果cur还不为空 说明遇到了需要删除的节点
-        if (cur!=null){
-            pre.next=cur.next;
+        if (cur != null) {
+            pre.next = cur.next;
         }
         return head;
 

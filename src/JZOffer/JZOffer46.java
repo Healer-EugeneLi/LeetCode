@@ -66,24 +66,25 @@ public class JZOffer46 {
 
     /**
      * 从右到左遍历 采用数字取模 取余的方式 动态规划
+     *
      * @param num
      * @return
      */
     public int translateNum(int num) {
 
-        int curNext=1,curNextNext=1,cur=1;
+        int curNext = 1, curNextNext = 1, cur = 1;
 
-        int y=num%10;//第一位数 当前数字的后一个数字
-        int x=0,check=0;
-        while (num!=0){
+        int y = num % 10;//第一位数 当前数字的后一个数字
+        int x = 0, check = 0;
+        while (num != 0) {
 
-            num/=10;//num去除最后一位
-            x=num%10;//求出当前这个数字
-            check=x*10+y;
-            cur=(check>=10&&check<=25)?curNext+curNextNext:curNext;
-            curNextNext=curNext;
-            curNext=cur;
-            y=x;
+            num /= 10;//num去除最后一位
+            x = num % 10;//求出当前这个数字
+            check = x * 10 + y;
+            cur = (check >= 10 && check <= 25) ? curNext + curNextNext : curNext;
+            curNextNext = curNext;
+            curNext = cur;
+            y = x;
 
         }
 
@@ -98,10 +99,10 @@ public class JZOffer46 {
 //        int res = t.translateNum(num);
 //        System.out.println(res);
 
-        System.out.println(93&3);
+        System.out.println(93 & 3);
 
         URL[] urLs = Launcher.getBootstrapClassPath().getURLs();
-        for (URL url:urLs)
+        for (URL url : urLs)
             System.out.println(url);
     }
 }

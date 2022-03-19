@@ -26,28 +26,28 @@ public class P56 {
             }
         });
 
-        List<int[] > res=new ArrayList<int[]>();
+        List<int[]> res = new ArrayList<int[]>();
 
-        for(int i=0;i<intervals.length;i++){
+        for (int i = 0; i < intervals.length; i++) {
 
-            int L=intervals[i][0];
-            int R=intervals[i][1];
-            if(res.size()==0||L>res.get(res.size()-1)[1]){
+            int L = intervals[i][0];
+            int R = intervals[i][1];
+            if (res.size() == 0 || L > res.get(res.size() - 1)[1]) {
                 //如果此时为空 或者当前左端点大于已有的区间里的右端点
                 res.add(intervals[i]);
-            }else {
+            } else {
                 //如果当前左区间小于已有的最后一个的右区间  更新右端点
 
                 //原先最后一个区间的右端点
                 int oldR = res.get(res.size() - 1)[1];
-                int newR=intervals[i][1];
+                int newR = intervals[i][1];
 
-                res.get(res.size()-1)[1]=Math.max(oldR,newR);
+                res.get(res.size() - 1)[1] = Math.max(oldR, newR);
             }
         }
 
 
-        int mergeIntervals[][]=res.toArray(new int[res.size()][2]);
+        int mergeIntervals[][] = res.toArray(new int[res.size()][2]);
 
 
         return mergeIntervals;
@@ -56,7 +56,7 @@ public class P56 {
     public static void main(String[] args) {
 
 
-        int[][] a = {{5,7},{2,6},{8,10},{15,18}};
+        int[][] a = {{5, 7}, {2, 6}, {8, 10}, {15, 18}};
 
         int[][] merge = P56.merge(a);
         System.out.println(merge);

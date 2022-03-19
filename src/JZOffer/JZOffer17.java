@@ -31,23 +31,25 @@ public class JZOffer17 {
 
     /**
      * 大数问题 使用全排列+字符串来解决
+     *
      * @param n
      * @return
      */
 
     int res[];
-    int pos=0;
+    int pos = 0;
+
     public int[] printNumbers(int n) {
 
-        res=new int[(int)Math.pow(10,n)-1];
+        res = new int[(int) Math.pow(10, n) - 1];
 
-        for (int digit=1;digit<=n;digit++){
+        for (int digit = 1; digit <= n; digit++) {
 
-            char num[]=new char[digit];//如果i=0 说明就是1位就行 存一个字符
-            for (char first='1';first<='9';first++){
+            char num[] = new char[digit];//如果i=0 说明就是1位就行 存一个字符
+            for (char first = '1'; first <= '9'; first++) {
 
-                num[0]=first;
-                dfs(1,digit,num);
+                num[0] = first;
+                dfs(1, digit, num);
 
             }
 
@@ -58,24 +60,24 @@ public class JZOffer17 {
 
     }
 
-    public void dfs(int index,int digit,char[] num){
+    public void dfs(int index, int digit, char[] num) {
 
-        if (index==digit){
-            res[pos++]=Integer.parseInt(String.valueOf(num));
+        if (index == digit) {
+            res[pos++] = Integer.parseInt(String.valueOf(num));
             return;
         }
 
-        for (char first='0';first<='9';first++){
+        for (char first = '0'; first <= '9'; first++) {
 
-            num[index]=first;
-            dfs(index+1,digit,num);
+            num[index] = first;
+            dfs(index + 1, digit, num);
         }
     }
 
     public static void main(String[] args) {
 
-        int n=2;
-        JZOffer17 jzOffer17=new JZOffer17();
+        int n = 2;
+        JZOffer17 jzOffer17 = new JZOffer17();
         int[] res = jzOffer17.printNumbers(n);
         System.out.println(Arrays.stream(res).toArray());
     }

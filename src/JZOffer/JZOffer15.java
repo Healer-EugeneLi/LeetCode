@@ -11,11 +11,11 @@ package JZOffer;
 public class JZOffer15 {
     public int hammingWeight(int n) {
 
-        int res=0;
-        while (n!=0){
+        int res = 0;
+        while (n != 0) {
 
-            res+=n&1;
-            n>>>=1;//无符号右移1位
+            res += n & 1;
+            n >>>= 1;//无符号右移1位
         }
         return res;
 

@@ -47,26 +47,27 @@ public class JZOffer66 {
 //    }
 
     /**
-     *优化上一个解法
+     * 优化上一个解法
+     *
      * @param a
      * @return
      */
     public int[] constructArr(int[] a) {
 
-        if(a.length==0) return new int[]{};
-        int res[]=new int[a.length];
+        if (a.length == 0) return new int[]{};
+        int res[] = new int[a.length];
 
-        res[0]=1;
+        res[0] = 1;
 
         //构建left数组
-        for (int i=1;i<a.length;i++){
-            res[i]=res[i-1]*a[i-1];
+        for (int i = 1; i < a.length; i++) {
+            res[i] = res[i - 1] * a[i - 1];
         }
-        int temp=1;
+        int temp = 1;
         //构建right数组
-        for (int i=a.length-2;i>=0;i--){
-            temp*=a[i+1];//临时的右边数据乘积
-            res[i]*=temp;
+        for (int i = a.length - 2; i >= 0; i--) {
+            temp *= a[i + 1];//临时的右边数据乘积
+            res[i] *= temp;
         }
 
         return res;

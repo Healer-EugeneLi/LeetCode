@@ -14,9 +14,9 @@ public class p434 {
 
         if (s.equals("")) return 0;
         String[] strings = s.split(" ");
-        int count=0;
-        for (String a:strings){
-            if (!a.equals("")){
+        int count = 0;
+        for (String a : strings) {
+            if (!a.equals("")) {
                 System.out.println(a);
                 count++;
             }
@@ -30,7 +30,7 @@ public class p434 {
 
     public static void main(String[] args) {
 
-        String t=" ";
+        String t = " ";
         int res = countSegments(t);
         System.out.println(res);
 

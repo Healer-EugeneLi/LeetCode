@@ -10,15 +10,16 @@ package JZOffer;
 public class ListNode {
     int val;
     ListNode next;
-    ListNode(int x){
-        val=x;
+
+    ListNode(int x) {
+        val = x;
     }
 }
 /**
  * Definition for singly-linked list.
  * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) { val = x; }
+ * int val;
+ * ListNode next;
+ * ListNode(int x) { val = x; }
  * }
  */

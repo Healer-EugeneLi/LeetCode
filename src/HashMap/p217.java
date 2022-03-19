@@ -14,9 +14,9 @@ public class p217 {
 
     public boolean containsDuplicate(int[] nums) {
 
-        HashSet set=new HashSet();
+        HashSet set = new HashSet();
 
-        for (int num:nums){
+        for (int num : nums) {
             if (set.contains(num)) return true;
             else
                 set.add(num);

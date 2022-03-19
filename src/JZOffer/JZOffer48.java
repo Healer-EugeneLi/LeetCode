@@ -19,22 +19,22 @@ public class JZOffer48 {
 
         if (s.equals("")) return 0;
         char[] chars = s.toCharArray();
-        int max=0;
+        int max = 0;
 
-        Set<Character> set=new HashSet<>();//存不重复的字符
+        Set<Character> set = new HashSet<>();//存不重复的字符
 
         //滑动窗口 left right 两个指针
-        for (int left=0,right=0;right<chars.length;right++){
+        for (int left = 0, right = 0; right < chars.length; right++) {
             char c = chars[right];
             //遇到已经存在的字符 那么就需要将左指针不断的右移 因为此时这个子串已经不符合要求了
-            while (set.contains(c)){
+            while (set.contains(c)) {
                 set.remove(chars[left++]);//滑动窗口的左边的元素删除 并且边界左移
             }
             //直到此时的串中不存在当前要加入的字符
             set.add(c);
 
-            int curLength = right-left+1;
-            max=curLength>max?curLength:max;
+            int curLength = right - left + 1;
+            max = curLength > max ? curLength : max;
         }
         return max;
 

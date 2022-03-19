@@ -6,15 +6,14 @@ package MoveWindow;
  * @Author EugeneLi
  * @Date: 2022/3/10
  * @Time: 22:03
- *
- *
+ * <p>
+ * <p>
  * 输入：customers = [1,0,1,2,1,1,7,5], grumpy = [0,1,0,1,0,1,0,1], minutes = 3
  * 输出：16
  * 解释：书店老板在最后 3 分钟保持冷静。
  * 感到满意的最大客户数量 = 1 + 1 + 1 + 1 + 7 + 5 = 16
- *
+ * <p>
  * 爱生气的老板
-
  */
 public class p1052 {
 
@@ -22,6 +21,7 @@ public class p1052 {
      * 由于技巧只会将生气变为不生气 不生气仍然是不生气
      * 1.先将原本满意的客户加入答案 同时将对应的customers[i]变为0
      * 2.之后的问题转化为：在customers中找到连续一段长度为minutes的子数组，使得其综合最大。这部分是我们应用技巧得到的客户
+     *
      * @param customers
      * @param grumpy
      * @param minutes
@@ -55,33 +55,31 @@ public class p1052 {
 //        return res+max;
 //
 //    }
-
-
     public int maxSatisfied(int[] customers, int[] grumpy, int minutes) {
 
 
-        int res=0;
-        for (int i=0;i< customers.length;i++){
-            if (grumpy[i]==0){
-                res+=customers[i];
-                customers[i]=0;
+        int res = 0;
+        for (int i = 0; i < customers.length; i++) {
+            if (grumpy[i] == 0) {
+                res += customers[i];
+                customers[i] = 0;
             }
         }
 
         //找到连续minutes最大子数组和
-        int cur=0;
-        int temp=0;
-        for (int i=0;i<customers.length;i++){
+        int cur = 0;
+        int temp = 0;
+        for (int i = 0; i < customers.length; i++) {
 
-            cur+=customers[i];
+            cur += customers[i];
 
-            if (i>=minutes){
-                cur-=customers[i-minutes];
+            if (i >= minutes) {
+                cur -= customers[i - minutes];
             }
 
-            temp=Math.max(temp,cur);
+            temp = Math.max(temp, cur);
         }
 
-        return res+temp;
+        return res + temp;
     }
 }

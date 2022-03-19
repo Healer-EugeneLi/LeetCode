@@ -12,19 +12,19 @@ public class JZOffer04 {
 
     public boolean findNumberIn2DArray(int[][] matrix, int target) {
 
-        if (matrix.length==0||matrix[0].length==0) return false;
-        int row=matrix.length;
-        int col=matrix[0].length;
+        if (matrix.length == 0 || matrix[0].length == 0) return false;
+        int row = matrix.length;
+        int col = matrix[0].length;
 
-        int i=0,j=col-1;
-        while (i<row&&j>=0){
-            int current=matrix[i][j];
-            if (current==target) return true;
+        int i = 0, j = col - 1;
+        while (i < row && j >= 0) {
+            int current = matrix[i][j];
+            if (current == target) return true;
 
-            if (current>target){
+            if (current > target) {
                 j--;
             }
-            if (current<target){
+            if (current < target) {
                 i++;
             }
         }

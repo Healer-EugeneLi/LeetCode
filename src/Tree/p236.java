@@ -67,21 +67,22 @@ public class p236 {
 
     /**
      * 方法2：
+     *
      * @param root
      * @param p
      * @param q
      * @return
      */
-    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q){
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 
-        if(root==null||p==root||q==root)//当前节点直接就是根节点  那么直接就是祖先
+        if (root == null || p == root || q == root)//当前节点直接就是根节点  那么直接就是祖先
             return root;
 
         TreeNode leftResult = lowestCommonAncestor(root.left, p, q);//左子树是否有p q
         TreeNode rightResult = lowestCommonAncestor(root.right, p, q);//右子树是否有p q
-        if (leftResult!=null&&rightResult!=null)
+        if (leftResult != null && rightResult != null)
             return root;
-        return leftResult!=null?leftResult:rightResult;//只有一方有p 或者q
+        return leftResult != null ? leftResult : rightResult;//只有一方有p 或者q
 
     }
 

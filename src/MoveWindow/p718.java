@@ -6,7 +6,7 @@ package MoveWindow;
  * @Author EugeneLi
  * @Date: 2022/3/11
  * @Time: 22:07
- *
+ * <p>
  * 最长重复子数组
  */
 public class p718 {
@@ -38,21 +38,21 @@ public class p718 {
 
     public int findLength(int[] nums1, int[] nums2) {
 
-        int len1=nums1.length;
-        int len2=nums2.length;
+        int len1 = nums1.length;
+        int len2 = nums2.length;
 
-        int dp[]=new int[len2+1];
-        int ans=0;
-        for (int i=1;i<=len1;i++){
+        int dp[] = new int[len2 + 1];
+        int ans = 0;
+        for (int i = 1; i <= len1; i++) {
 
-            for (int j=len2;j>=1;j--){
+            for (int j = len2; j >= 1; j--) {
 
-                if (nums1[i-1]==nums2[j-1]){
-                    dp[j]=dp[j-1]+1;
-                }else
-                    dp[j]=0;
+                if (nums1[i - 1] == nums2[j - 1]) {
+                    dp[j] = dp[j - 1] + 1;
+                } else
+                    dp[j] = 0;
 
-                ans=Math.max(ans,dp[j]);
+                ans = Math.max(ans, dp[j]);
             }
         }
 

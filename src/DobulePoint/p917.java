@@ -10,9 +10,6 @@ package DobulePoint;
 public class p917 {
 
 
-
-
-
 //    /**
 //     * 双指针翻转 字母
 //     * @param s
@@ -61,6 +58,7 @@ public class p917 {
 
     /**
      * 双指针 优雅写法
+     *
      * @param s
      * @return
      */
@@ -69,21 +67,21 @@ public class p917 {
 
         char[] chars = s.toCharArray();
 
-        int left=0,right=chars.length-1;
+        int left = 0, right = chars.length - 1;
 
-        while (left<right){
+        while (left < right) {
 
             //从左边开始遍历 直到遇到字母
-            while (left<right&&!Character.isLetter(chars[left])) left++;
+            while (left < right && !Character.isLetter(chars[left])) left++;
 
             //从右边开始往左遍历 直到遇到字母
-            while (left<right&&!Character.isLetter(chars[right])) right--;
+            while (left < right && !Character.isLetter(chars[right])) right--;
 
-            if (left<right){
+            if (left < right) {
                 //进行交换
-                char temp=chars[left];
-                chars[left++]=chars[right];
-                chars[right--]=temp;
+                char temp = chars[left];
+                chars[left++] = chars[right];
+                chars[right--] = temp;
             }
 
         }
@@ -93,8 +91,8 @@ public class p917 {
 
     public static void main(String[] args) {
 
-        String s="Test1ng-Leet=code-Q!";
-        p917 t=new p917();
+        String s = "Test1ng-Leet=code-Q!";
+        p917 t = new p917();
         String res = t.reverseOnlyLetters(s);
         System.out.println(res.toString());
     }
