@@ -48,6 +48,7 @@ public class p494 {
 
             for (int j = weight; j >= nums[i]; j--) {
 
+                //此时来了一个nums[i]这个值 所以知道dp[j-nums[i]]的方案数 我们就可以加上他的方案数就行
                 dp[j] += dp[j - nums[i]];
             }
         }
