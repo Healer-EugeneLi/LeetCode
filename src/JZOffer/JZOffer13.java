@@ -27,7 +27,9 @@ public class JZOffer13 {
         //不符合条件
         if (x < 0 || x >= m || y < 0 || y >= n || (getSum(x) + getSum(y) > k) || arr[x][y] == true)
             return false;
-        //符合条件 加一个格子
+        //符合条件 加一个格子 并且设置为true 表示访问过
+        // 而且后面回溯的时候不需要设置回false
+        // 因为题目要求的是可以走的总的格子数  所以设置为true表示我们已经走过 加上去1次了 如果设置回false的话 后面又访问到 又会被加1次 那显然是不对的
         count++;
         arr[x][y] = true;
 

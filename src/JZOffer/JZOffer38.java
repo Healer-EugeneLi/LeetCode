@@ -58,7 +58,7 @@ public class JZOffer38 {
     public String[] permutation(String s) {
 
         char[] chars = s.toCharArray();
-        Arrays.sort(chars);//注意先排序
+        Arrays.sort(chars);//为了去重的话 注意先排序
         dfs(chars, 0, "");
 
         String res[] = new String[list.size()];
@@ -73,8 +73,15 @@ public class JZOffer38 {
 
     }
 
+    /**
+     *
+     * @param chars
+     * @param step 当前已经加入的字符个数
+     * @param cur
+     */
     public void dfs(char chars[], int step, String cur) {
 
+        //当前字符的个数已经==原先字符串的长度了 说明找到一个排列了
         if (chars.length == step) {
             list.add(new String(cur));
             return;
@@ -82,6 +89,7 @@ public class JZOffer38 {
 
         for (int i = 0; i < chars.length; i++) {
 
+            //used[i - 1] == false 说明当前要用的字符 在前面已经用过了
             if (i > 0 && used[i - 1] == false && chars[i] == chars[i - 1]) continue;
 
             if (!used[i]) {

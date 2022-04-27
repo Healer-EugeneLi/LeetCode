@@ -28,7 +28,7 @@ public class JZOffer16 {
         long N = n;
         //当N为偶数时 x^N=x^(2*N//2)
         //当N为奇数时 x^N=x^(2*N//2)*x
-        //所以不断的让x^N转换为x的2次方乘以N//2
+        //所以不断的让x^N转换为x的2次方 乘N//2次
         double res = 1;
         while (N > 0) {
 
@@ -41,6 +41,16 @@ public class JZOffer16 {
         }
         //当最后N==0的时候 结果即为x^n=x^0 * res
         return res;
+
+    }
+
+    public static void main(String[] args) {
+        double x=3;
+        int N=5;
+
+        JZOffer16 t=new JZOffer16();
+        double res = t.myPow(x, N);
+        System.out.println(res);
 
     }
 }

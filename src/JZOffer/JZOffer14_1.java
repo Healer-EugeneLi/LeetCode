@@ -13,7 +13,7 @@ package JZOffer;
  */
 public class JZOffer14_1 {
 
-    //动态规划
+//    //动态规划
 //    public int cuttingRope(int n) {
 //
 //        int dp[]=new int[n+1];//dp[i]表示的是长度为i的绳子 可以得到的最大乘积
@@ -22,7 +22,8 @@ public class JZOffer14_1 {
 //        for (int i=3;i<=n;i++){
 //            //遍历绳子长度直到最后目标长度
 //
-//            for (int j=2;j<i;j++){
+//            //实际剪到一半的时候后面就都是重复的了
+//            for (int j=1;j<=i/2;j++){
 //                // 此循环表示剪掉其中一个长度为j的 然后剩下的j-i 可以继续剪也有选择不剪
 //                //因为绳子数目必须是大于1段的 所以j不能取到i
 //                int notCut=j*(i-j);//剪掉长度j 剩下i-j 不继续剪
@@ -44,7 +45,7 @@ public class JZOffer14_1 {
 
         //长度为2时 结果1
         //     3      2
-
+        //为4的时候 返回4
         if (n < 4) return n - 1;
 
         int res = 1;

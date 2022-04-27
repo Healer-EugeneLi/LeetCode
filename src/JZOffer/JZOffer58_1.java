@@ -15,12 +15,12 @@ public class JZOffer58_1 {
         String res = "";
 
         for (int i = strings.length - 1; i >= 0; i--) {
-
+            //遇到空格就跳过
             if (strings[i].equals("")) continue;
             res += strings[i] + " ";
         }
 
-        return res.trim();
+        return res.trim();//由于在循环中每一次都会在加入单词的时候 加入一个 空格 因此最后返回的时候去掉最后一个空格
 
 
     }

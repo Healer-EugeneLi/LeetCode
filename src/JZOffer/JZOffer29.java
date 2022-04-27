@@ -38,7 +38,7 @@ public class JZOffer29 {
                 res[num++] = matrix[i][right];//此时控制列不变 行一直往下移
             }
             right--;//右边的这一列模拟完  往左移动一次
-
+            //模拟此时的最下面的一行
             for (int i = right; i >= left && num < row * col; i--) {
                 res[num++] = matrix[bom][i];//此时控制行不变 列从右往左一直移动
             }

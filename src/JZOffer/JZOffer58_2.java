@@ -21,10 +21,10 @@ public class JZOffer58_2 {
 
         char resChars[] = new char[s.length()];
         char[] chars = s.toCharArray();
-        //对于index位置的字符 其左旋转n之后 其位置为  (  index+s.length()-n )% s.length()
+        //对于index位置的字符 其左旋转n之后 其位置为  (  index-n+s.length() )% s.length()
         for (int i = 0; i < chars.length; i++) {
-            int pos = (i + s.length() - n) % s.length();
-            resChars[pos] = chars[i];
+            int pos = (i - n+ s.length() ) % s.length();
+            resChars[pos] = chars[i];//把当前字符 放入它旋转之后该放入的位置
         }
 
         String res = String.valueOf(resChars);

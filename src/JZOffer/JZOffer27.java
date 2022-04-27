@@ -66,6 +66,8 @@ public class JZOffer27 {
         root.left = right;
         root.right = left;
 
+        //实际在递归的时候 递归结束 返回到这一层结点的时候 root表示的还是当前这个根节点
+
         //返回根节点
         return root;
 

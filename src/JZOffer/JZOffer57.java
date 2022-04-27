@@ -14,15 +14,18 @@ public class JZOffer57 {
 
     /**
      * 1.使用滑动窗口的方法解决 双指针
-     *
+     * 1-N的值中 找到连续序列其和==target的所有情况
      * @param target
      * @return
      */
     public int[][] findContinuousSequence(int target) {
 
+        //保存所有的组合情况
         List<List<Integer>> list = new ArrayList<>();
         int left = 1, right = 1, sum = 0;
+
         for (left = 1, right = 1, sum = 0; right <= target - 1; right++) {
+
             //sum还不足target的时候 就直接加right的值 窗口又边界的值
             sum += right;
             while (sum > target) {
@@ -31,8 +34,10 @@ public class JZOffer57 {
                 left++;//并且左指针往右移 说明窗口的左边界往右移
             }
 
+            //此时滑动窗口中的值 其和为target 那么找到一种情况
             if (sum == target) {
                 List<Integer> cur = new ArrayList<>();
+                //从left指针遍历到right指针就是满足情况的这些连续的数
                 for (int i = left; i <= right; i++) {
                     cur.add(i);
                 }

@@ -18,7 +18,7 @@ public class JZOffer14_2 {
 
         //长度为2时 结果1
         //     3      2
-
+        //n为4的时候直接返回res*n=1*4=4
         if (n < 4) return n - 1;
 
         long res = 1;

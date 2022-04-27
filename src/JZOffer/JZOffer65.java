@@ -14,10 +14,10 @@ public class JZOffer65 {
 
         while (b != 0) {//当进位不等于0才需要往下走  如果是0 那么无需往下走了
 
-            //a用来保留原味 b用来存储进位
+            //a用来保留原位 b用来存储进位
 
             int next = a & b;
-            a = a ^ b;//本位
+            a = a ^ b;//不进位
             b = next << 1;//进位
         }
         return a;

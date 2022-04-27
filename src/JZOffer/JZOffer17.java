@@ -41,15 +41,17 @@ public class JZOffer17 {
 
     public int[] printNumbers(int n) {
 
+        //最大的 11 位数是 99 ，最大的 22 位数是 9999 ，最大的 33 位数是 999999 。则可推出公式：最大的位数为10^n-1
         res = new int[(int) Math.pow(10, n) - 1];
 
+        //digit用来表示有几位数 从1位开始选
         for (int digit = 1; digit <= n; digit++) {
 
-            char num[] = new char[digit];//如果i=0 说明就是1位就行 存一个字符
+            char num[] = new char[digit];//如果digit=1 说明就是1位就行 存一个字符
             for (char first = '1'; first <= '9'; first++) {
 
-                num[0] = first;
-                dfs(1, digit, num);
+                num[0] = first;//先选择首个数字
+                dfs(1, digit, num);//接着dfs选择下一个数字
 
             }
 
@@ -59,14 +61,14 @@ public class JZOffer17 {
 
 
     }
-
+    //index表示当前已经选择了多少个数字了 digit表示需要多少个数字
     public void dfs(int index, int digit, char[] num) {
-
+        //当前已经选择的数字已经==这一轮的目标数字digit 将num数组中的数字 解析成数字
         if (index == digit) {
             res[pos++] = Integer.parseInt(String.valueOf(num));
             return;
         }
-
+        //来到这里的时候 前面已经固定了1个数字 比如digit=2  说明要求两个数字 那么index=1的时候 已经固定了一个数字 放在num[0]的位置 接下去就是选择下一个数字 然后继续dfs
         for (char first = '0'; first <= '9'; first++) {
 
             num[index] = first;
@@ -79,8 +81,12 @@ public class JZOffer17 {
         int n = 2;
         JZOffer17 jzOffer17 = new JZOffer17();
         int[] res = jzOffer17.printNumbers(n);
-        System.out.println(Arrays.stream(res).toArray());
+        for (int a:res)
+            System.out.print(a+" ");
+
     }
+
+
 
 
 }

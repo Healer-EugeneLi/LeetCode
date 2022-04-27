@@ -19,7 +19,8 @@ public class JZOffer31 {
      * 时间复杂度 O(N) ： 其中 N 为列表pushed 的长度；每个元素最多入栈与出栈一次，
      * 即最多共 2N 次出入栈操作。
      * 空间复杂度 O(N) ： 辅助栈 stack 最多同时存储 N 个元素。
-     *
+     * pushed = [1,2,3,4,5], popped = [4,5,3,2,1] true
+     *pushed = [1,2,3,4,5], popped = [4,3,5,1,2] false
      * @param pushed
      * @param popped
      * @return

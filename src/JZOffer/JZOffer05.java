@@ -10,18 +10,33 @@ package JZOffer;
  * 输出："We%20are%20happy."
  */
 public class JZOffer05 {
+//    public String replaceSpace(String s) {
+//
+//        char[] chars = s.toCharArray();
+//        String res = "";
+//
+//        for (int i = 0; i < chars.length; i++) {
+//            if (chars[i] == ' ')
+//                res += "%20";
+//            else
+//                res += chars[i];
+//        }
+//        return res;
+//
+//    }
+
     public String replaceSpace(String s) {
 
         char[] chars = s.toCharArray();
-        String res = "";
+       StringBuilder res=new StringBuilder();
 
         for (int i = 0; i < chars.length; i++) {
             if (chars[i] == ' ')
-                res += "%20";
+                res.append("%20");
             else
-                res += chars[i];
+                res.append(chars[i]);
         }
-        return res;
+        return res.toString();
 
     }
 }

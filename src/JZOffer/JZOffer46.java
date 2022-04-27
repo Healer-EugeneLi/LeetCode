@@ -3,6 +3,8 @@ package JZOffer;
 import sun.misc.Launcher;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @ClassName: JZOffer46
@@ -31,7 +33,7 @@ public class JZOffer46 {
 //        String s = String.valueOf(num);
 //        for (int i=2;i<=s.length();i++){
 //
-//            String check = s.substring(i - 2, i);//12258 当i=2的时候 切分出来为[0,1]  12
+//            String check = s.substring(i - 2, i);//12258 当i=2的时候 切分出来索引为[0,1]  12
 //            cur=check.compareTo("10")>=0&&check.compareTo("25")<=0?curPre+curPrePre:curPre;
 //            curPrePre=curPre;//两个变量移动
 //            curPre=cur;
@@ -98,6 +100,7 @@ public class JZOffer46 {
 //        JZOffer46 t=new JZOffer46();
 //        int res = t.translateNum(num);
 //        System.out.println(res);
+
 
         System.out.println(93 & 3);
 

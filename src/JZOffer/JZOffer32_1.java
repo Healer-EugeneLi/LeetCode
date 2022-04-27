@@ -20,12 +20,14 @@ public class JZOffer32_1 {
         if (root == null) return new int[]{};
 
         Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
+        queue.add(root);//先加入根节点
         List<Integer> list = new LinkedList<>();
+        //队列存的是每一层的结点 当队列不为空的时候
         while (!queue.isEmpty()) {
-
+            //此时这一层的某一个结点
             TreeNode cur = queue.poll();
-            list.add(cur.val);
+            list.add(cur.val);//加入
+            //左右子树都不为空 就加入结点 即下一层的结点
             if (cur.left != null)
                 queue.add(cur.left);
             if (cur.right != null)

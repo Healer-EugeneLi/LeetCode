@@ -10,11 +10,15 @@ package JZOffer;
  * 在二叉树中找到最近公共祖先
  */
 public class JZOffer68_2 {
+
+    //时间复杂度 O(N) ： 其中 N 为二叉树节点数；最差情况下，需要递归遍历树的所有节点。
+    //空间复杂度 O(N) ： 最差情况下，递归深度达到 NN ，系统使用 O(N) 大小的额外空间。
+
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 
         //当根节点是null的时候 返回null
         if (root == null) return null;
-        //当递归遍历到所要找的跟节点 返回此节点
+        //当递归遍历到所要找的根节点 返回此节点
         if (root == p) return p;
         if (root == q) return q;
 

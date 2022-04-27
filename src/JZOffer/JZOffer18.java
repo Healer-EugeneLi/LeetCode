@@ -36,23 +36,44 @@ public class JZOffer18 {
 //
 //    }
 
+//    public ListNode deleteNode(ListNode head, int val) {
+//
+//        if (head.val == val) return head.next;
+//
+//        ListNode pre = head, cur = head.next;
+//
+//        while (cur != null && cur.val != val) {
+//            //当链表还没有遍历完 并且当前节点不等于val
+//            pre = cur;
+//            cur = cur.next;
+//        }
+//
+//        //此时如果cur还不为空 说明遇到了需要删除的节点
+//        if (cur != null) {
+//            pre.next = cur.next;
+//        }
+//        return head;
+//
+//    }
+
     public ListNode deleteNode(ListNode head, int val) {
 
-        if (head.val == val) return head.next;
+        if(head.val==val) return head.next;//假设删除的是头节点 那么返回头结点的下一个结点
 
-        ListNode pre = head, cur = head.next;
+        ListNode pre=head;//指向前驱节点
+        ListNode q=head.next;
 
-        while (cur != null && cur.val != val) {
-            //当链表还没有遍历完 并且当前节点不等于val
-            pre = cur;
-            cur = cur.next;
+        while(q!=null){
+
+            if(q.val==val){
+                pre.next=q.next;//遇到删除的结点 指向下一个
+                break;
+            }else{
+                pre=q;
+                q=q.next;
+            }
         }
 
-        //此时如果cur还不为空 说明遇到了需要删除的节点
-        if (cur != null) {
-            pre.next = cur.next;
-        }
         return head;
-
     }
 }

@@ -33,7 +33,7 @@ public class JZOffer48 {
             //直到此时的串中不存在当前要加入的字符
             set.add(c);
 
-            int curLength = right - left + 1;
+            int curLength = right - left + 1;//当前满足条件的滑动窗口的长度
             max = curLength > max ? curLength : max;
         }
         return max;
