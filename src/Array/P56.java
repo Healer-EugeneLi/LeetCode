@@ -18,7 +18,7 @@ public class P56 {
     public static int[][] merge(int[][] intervals) {
 
 
-        //先对左端点排序
+        //先对所有元组按照左端点从小到大排序
         Arrays.sort(intervals, new Comparator<int[]>() {
             @Override
             public int compare(int[] o1, int[] o2) {
@@ -26,23 +26,31 @@ public class P56 {
             }
         });
 
+        //res列表存放最后的区间结果
         List<int[]> res = new ArrayList<int[]>();
 
+        //遍历每一个元组
         for (int i = 0; i < intervals.length; i++) {
 
-            int L = intervals[i][0];
-            int R = intervals[i][1];
-            if (res.size() == 0 || L > res.get(res.size() - 1)[1]) {
-                //如果此时为空 或者当前左端点大于已有的区间里的右端点
+            int curL = intervals[i][0];//当前元组的左区间
+            int curR = intervals[i][1];//当前元组的右区间
+
+
+
+            //如果此时为空 或者当前左端点大于已有的结果的最后一个区间里的右端点
+            if (res.size() == 0 || curL > res.get(res.size()-1)[1]) {
+                //那么直接加入当前元组 作为一个新的区间
                 res.add(intervals[i]);
             } else {
-                //如果当前左区间小于已有的最后一个的右区间  更新右端点
+                //如果当前左区间小于已有的最后一个的右区间  则选择更新最后一个区间的右端点
 
                 //原先最后一个区间的右端点
-                int oldR = res.get(res.size() - 1)[1];
+                int oldR =res.get(res.size()-1)[1];
+                //当前元组的右端点值
                 int newR = intervals[i][1];
 
-                res.get(res.size() - 1)[1] = Math.max(oldR, newR);
+                //哪个更大就使用哪个为右区间
+                res.get(res.size()-1)[1] = Math.max(oldR, newR);
             }
         }
 

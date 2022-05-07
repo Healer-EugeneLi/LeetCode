@@ -26,7 +26,7 @@ public class p198 {
 
         for (int i=2;i<nums.length;i++){
 
-            dp[i]=Math.max(dp[i-2]+nums[i],dp[i-1]);//偷当前的房屋 以及 如果不偷 进行比较 取最大
+            dp[i]=Math.max(dp[i-2]+nums[i],dp[i-1]);//偷当前的房屋 以及 如果不偷，不偷的时候取前一个值 两种情况进行比较 取最大
         }
 
         return dp[nums.length-1];

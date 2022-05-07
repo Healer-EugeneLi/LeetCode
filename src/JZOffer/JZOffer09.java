@@ -34,7 +34,7 @@ class CQueue {
      * 首先判断B栈中是否有元素 如果有 直接返回栈顶元素
      *
      * 如果B栈中没有元素 那么判断A栈中是否有元素
-     *      如果A栈中有，那么不断弹出A中的元素到B中，知道A为空，返回B栈顶元素
+     *      如果A栈中有，那么不断弹出A中的元素到B中，直到A为空，返回B栈顶元素
      *      如果A栈中也没有 返回-1
      *
      * @return
@@ -47,10 +47,11 @@ class CQueue {
             //A中不为空
             if (!stackA.isEmpty()){
 
+                //不断地将A中的元素弹出 然后压入到B中
                 while (!stackA.isEmpty()){
                     stackB.push(stackA.pop());
                 }
-                //返回b中的栈顶元素
+                //返回B中的栈顶元素
                 return stackB.pop();
             }else {
                 return -1;

@@ -28,15 +28,17 @@ public class p15 {
         int sum=0;//左右指针的和
         for (int i=0;i<nums.length-2;i++){
             if (i>0&&nums[i]==nums[i-1]) continue;//去重
-            if (nums[i]>0) break;//已经超过0了
+            if (nums[i]>0) break;//已经超过0了 因为一开始已经排序过了 所以后面的数肯定都是比0大的
 
-            target=0-nums[i];
+            target=0-nums[i];//设置a=nums[i]  所以需要找的另外两数的和为0-a
             left=i+1;
             right=nums.length-1;
             while (left<right){
 
-                sum=nums[left]+nums[right];
+                sum=nums[left]+nums[right];//当前两个数的和
+                //如果等于目标值
                 if (sum==target){
+                    //加入一组符合的数据
                     res.add(Arrays.asList(nums[i],nums[left],nums[right]));
                     //过滤重复
                     while (left<right&&nums[left]==nums[left+1]){

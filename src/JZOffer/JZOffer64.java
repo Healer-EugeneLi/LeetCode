@@ -17,5 +17,26 @@ public class JZOffer64 {
 //
 //    }
 
+    /**
+     * 对递归写法进行转换
+     * @param n
+     * @return
+     */
+    public int sumNums(int n){
+
+        boolean res=(n>0)&&(n+=sumNums(n-1))>0;
+        return  n;
+    }
+
+    /**
+     * 递归写法
+     * @param n
+     * @return
+     */
+    public int recur(int n){
+
+        if (n==1) return 1;
+        return recur(n-1)+n;
+    }
 
 }

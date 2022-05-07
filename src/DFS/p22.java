@@ -47,7 +47,6 @@ public class p22 {
             dfs(n,leftNumber,rightNumber+1,cur+")");
         }
 
-
     }
 
     public static void main(String[] args) {

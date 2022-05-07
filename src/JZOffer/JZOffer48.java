@@ -26,7 +26,7 @@ public class JZOffer48 {
         //滑动窗口 left right 两个指针
         for (int left = 0, right = 0; right < chars.length; right++) {
             char c = chars[right];
-            //遇到已经存在的字符 那么就需要将左指针不断的右移 因为此时这个子串已经不符合要求了
+            //遇到已经存在的字符 那么就需要将左指针不断的右移 因为此时这个子串已经不符合要求了 直到set中不含要加入的字符
             while (set.contains(c)) {
                 set.remove(chars[left++]);//滑动窗口的左边的元素删除 并且边界左移
             }
@@ -34,7 +34,7 @@ public class JZOffer48 {
             set.add(c);
 
             int curLength = right - left + 1;//当前满足条件的滑动窗口的长度
-            max = curLength > max ? curLength : max;
+            max = curLength > max ? curLength : max;//更新最大长度
         }
         return max;
 

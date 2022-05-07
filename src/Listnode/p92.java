@@ -32,6 +32,7 @@ public class p92 {
             pre = pre.next;
             cur = cur.next;
         }
+        //总体的思想是逐个将要翻转的结点插入到区间的左边 最后翻转区间的左节点就变成在区间的最右边了 最右边的在最前面 实现翻转
         //此时 cur指向3 pre 指向2
         for (int i = 0; i < right - left; i++) {
             ListNode remove = cur.next;// 第一轮remove指向4  第二轮 remove指向5

@@ -45,7 +45,7 @@ public class p93 {
         for (int i=startIndex;i<s.length();i++){
             //实际上startIndex用来控制准备开始切割的位置 i用来控制长度 一开始进入循环的时候 i==startIndex 所以切出来的是1个字符
             if (isValid(s,startIndex,i)){
-                //当前是合法的 那么就可以在这个i这个位置后面差一个 . 记住substring中容易写错成substring(startIndex,i+1)
+                //当前是合法的 那么就可以在这个i这个位置后面插一个 . 记住substring中容易写错成substring(startIndex,i+1)
                 //我们需要的是前面字符串全部切割出来 即[0,i]然后在后面加一个. 再将[i+1,往后的全部拿出来进行拼接
                 s=s.substring(0,i+1)+'.'+s.substring(i+1);
                 pointNum++;
@@ -53,7 +53,7 @@ public class p93 {
                 backTracking(s,i+2,pointNum);
                 pointNum--;
                 //将s还原为原先的状态
-                // 上一个 . 是放在i的后面 因此需要切割0~i索引的位置 substring是左闭右开的 因此取[0,i]需要(0,i+1)
+                // 上一个 . 是放在i的后面 因此需要切割0~i索引的位置 substring是左闭右开的 因此取[0,i]需要(0,i+1) 然后把 . 后面的字符拿出来进行拼接 还原
                 s=s.substring(0,i+1)+s.substring(i+2);
             }
         }
@@ -81,9 +81,11 @@ public class p93 {
 
         int num=0;
         for (int i=start;i<=end;i++){
+            //如果出现了小于0 大于9的字符也是不合法的
             if (s.charAt(i)<'0'||s.charAt(i)>'9')return false;
 
             num=num*10+s.charAt(i)-'0';
+            //数字大于255也是不合法的
             if (num>255)
                 return false;
         }

@@ -28,9 +28,11 @@ public class p300 {
         //外层表示遍历每一个元素作为结尾
         for (int i=0;i<nums.length;i++){
 
+            //相当于对当前元素i的前面所有元素进行一一的判断 将当前元素放在他们后面的话是否可以构成更长的最长递增子序列
             for (int j=0;j<i;j++){
                 if (nums[i]>nums[j])
                     dp[i]=Math.max(dp[i],dp[j]+1);
+                //max必须在次更新 如果写在for循环外面就错了 因为对于不同的j 更新出来的dp[i]是不一样的
                 max=Math.max(max,dp[i]);
             }
 

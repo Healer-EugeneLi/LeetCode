@@ -1,6 +1,7 @@
 package Sort;
 
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * @ClassName: FastSort
@@ -43,9 +44,37 @@ public class FastSort {
         sort(arr, left + 1, high);
     }
 
+
+    public void quickSort(int nums[],int start,int end){
+
+        if(start>=end)
+            return ;
+        int base=nums[start];//基准值
+        int left=start;//左指针
+        int right=end;//右指针
+
+        while(left<right){
+
+            //直到找到一个比base小的值
+            while (left<right&&nums[right]>=base) right--;
+            //直到找到一个比base大的值
+            while(left<right&&nums[left]<=nums[right]) left++;
+
+            if (left<right){
+                //交换
+                int temp=nums[right];
+                nums[right]=nums[left];
+                nums[left]=temp;
+            }
+            //递归排序两个区间
+            quickSort(nums,start,left-1);
+            quickSort(nums,left+1,end);
+        }
+
+    }
     public static void main(String[] args) {
 
-        int arr[] = {2, 3, 1, 2, 3, 4, 5, 6, 2, 4, 5, 8, 8, 1};
+        int arr[] = {2, 4,6,8,1,3,5,7};
         FastSort fastSort = new FastSort();
         fastSort.sort(arr, 0, arr.length - 1);
 

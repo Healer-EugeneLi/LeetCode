@@ -14,7 +14,7 @@ import java.util.List;
  * 可以看出元素1在[1,2]中已经使用过了，但是在[2,1]中还要在使用一次1，所以处理排列问题就不用使用startIndex了。
  */
 public class p46 {
-
+//
 //    public List<List<Integer>> res = new ArrayList<>();
 //
 //    void process(int[] nums, List<Integer> path, boolean used[]) {
@@ -72,6 +72,7 @@ public class p46 {
         //所以每一次进入搜索的时候 循环都是从索引为0开始
         for (int i=0;i< nums.length;i++){
 
+            //去重 当前这个值==前面的出现过的值 而且user[i-1]为false 说明已经使用过了 然后回溯之后标记为false
             if (i>0&&nums[i]==nums[i-1]&&used[i-1]==false) continue;
             if (!used[i]){
 

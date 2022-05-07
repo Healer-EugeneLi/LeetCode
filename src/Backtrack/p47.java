@@ -21,6 +21,8 @@ public class p47 {
             res.add(new ArrayList<>(path));
         }
 
+        //可以看出元素1在[1,2]中已经使用过了，但是在[2,1]中还要在使用一次1，所以处理排列问题就不用使用startIndex了。
+        //所以每一次进入搜索的时候 循环都是从索引为0开始
         for (int i = 0; i < nums.length; i++) {
 
             if (!used[i]) {
@@ -44,7 +46,7 @@ public class p47 {
         boolean[] used = new boolean[nums.length];
         for (int i = 0; i < nums.length; i++)
             used[i] = false;
-        Arrays.sort(nums);
+        Arrays.sort(nums);//注意如果要去重必须先进行排序
         List<Integer> path = new ArrayList<>();
 
         backtrack(nums, path, used);
