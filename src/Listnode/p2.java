@@ -55,7 +55,9 @@ public class p2 {
 //        return newHead.next;
 //
 //    }
-
+    //题目要求的是 2->4->3
+    //           5->6->4
+    //           7->0->8
     //一种更加优雅的写法
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 
@@ -67,7 +69,8 @@ public class p2 {
         //如果两个链表有一个不为空 或者进位add不是0 就可以继续
         while (l1!=null||l2!=null||add!=0){
 
-            sum=add;//先设置为上一次的进位 也就是先加进来
+            //先设置为上一次的进位 也就是先加进来
+            sum=add;
             if (l1!=null){
                 sum+=l1.val;
                 l1=l1.next;
@@ -78,8 +81,8 @@ public class p2 {
                 l2=l2.next;
             }
 
-            p.next=new ListNode(sum%10);
-            add=sum/10;
+            p.next=new ListNode(sum%10);//注意加的是取%之后的值
+            add=sum/10;//进位
             p=p.next;
         }
         return newHead.next;

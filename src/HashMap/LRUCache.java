@@ -15,13 +15,14 @@ import java.util.HashMap;
 class Node{
 
     public int key,val;
-    public Node next,prev;
+    public Node next,prev;//作为双向链表 指向前后的指针
     public Node(int k,int v){
         this.key=k;
         this.val=v;
     }
 }
 
+//双向链表 存放结点
 class DoubleList{
 
     //头尾虚节点
@@ -30,7 +31,7 @@ class DoubleList{
     public int size;
 
     public DoubleList(){
-        //初始化双向链表数据
+        //初始化双向链表数据 建立头部与尾部 并且进行连接
         head=new Node(0,0);
         tail=new Node(0,0);
         head.next=tail;//头结点后继指向尾部
@@ -43,7 +44,7 @@ class DoubleList{
      * @param x
      */
     public void addLast(Node x){
-        //设置x节点的前驱 后继
+        //加入新节点x  设置x节点的前驱 后继 主要x是要放在tail的前一个位置
         x.prev=tail.prev;
         x.next=tail;
 
@@ -56,7 +57,8 @@ class DoubleList{
     }
 
     /**
-     * 删除链表中的x节点 x一定是存在的
+     * 删除链表中的x节点
+     * 注意调用此方法的时候 已经知道x一定是存在的 才来进行删除
      * @param x
      */
     public void remove(Node x){
@@ -73,9 +75,10 @@ class DoubleList{
      */
     public Node removeFirst(){
 
+        //此时已经剩下head和tail说明已经没有结点了
         if (head.next==tail)
             return null;
-        Node first=head.next;
+        Node first=head.next;//head的下一个是真正的头结点
 
         //删掉头结点
         remove(first);
@@ -93,7 +96,7 @@ class DoubleList{
 
 public class LRUCache {
     //key-->Node(key,val)
-    private HashMap<Integer,Node> map;//存放key与结点的对应关系
+    private HashMap<Integer,Node> map;//存放key值 与其存在双向链表的结点的对应关系
     //Node(k1, v1) <-> Node(k2, v2)...
     private DoubleList cache;//存放节点 此结点包含数据
     //最大容量
@@ -125,11 +128,12 @@ public class LRUCache {
     }
 
     /**
-     * 添加最近使用的元素
+     * 添加为最近使用的元素
      * @param key
      * @param val
      */
     public void addRecently(int key,int val){
+        //
         Node node=new Node(key,val);
 
         //加入到链表尾部

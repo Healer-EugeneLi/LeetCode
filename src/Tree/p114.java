@@ -62,12 +62,12 @@ public class p114 {
             }else {
                 //左子树不为空
 
-                //找到左子树的最右节点
-                TreeNode pre=root.left;
+                //先找到左子树的最右节点
+                TreeNode pre=root.left;//初始化为pre左子树的根节点 用这个pre一直往右子树找 就能找到最右节点
                 while (pre.right!=null){
                     pre=pre.right;
                 }
-                //到达左子树的最右节点之后 直接将原先节点的右子树插入作为右子树
+                //到达左子树的最右节点之后 直接将原先节点的右子树插入该最右结点 作为右子树
                 pre.right=root.right;
 
                 root.right=root.left;//将root的左子树插入到右节点这个位置

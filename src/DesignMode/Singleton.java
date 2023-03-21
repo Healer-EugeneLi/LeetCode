@@ -10,6 +10,7 @@ package DesignMode;
 public class Singleton {
 
     /**
+     * 整个应用中，只维护一个特定类的实例
      * 为 uniqueInstance 分配内存空间
      * 初始化 uniqueInstance
      * 将 uniqueInstance 指向分配的内存地址

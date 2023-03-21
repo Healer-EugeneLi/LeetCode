@@ -55,14 +55,14 @@ public class p39 {
 
             //在求和问题中，排序之后加剪枝是常见的套路！
             //因为前面已经从小到大排序了
-            // 所以加上当前这个数的时候 如果和已经超过目标和 后面的数也不用试了 加上去肯定也更大
+            // 所以加上当前这个数的时候 如果和已经超过目标和 后面的数也不用试了 加上去肯定也更大 break回到上一层 将上一个加入的元素删除
             if (curSum+candidates[i]>target) break;
             path.add(candidates[i]);
             curSum+=candidates[i];
-            //因为可以重复取  所以在搜索的时候就可以继续使用当前这个下标的数
+            //因为可以重复取  所以在搜索的时候就可以继续使用当前这个下标的数 所以传入i到startIndex
             backTracking(candidates,target,curSum,i,path);
-            path.remove(path.size()-1);
-            curSum-=candidates[i];
+            path.remove(path.size()-1);//移除最后加入的一个元素
+            curSum-=candidates[i];//记得把加进来的数删除回去
         }
     }
 }

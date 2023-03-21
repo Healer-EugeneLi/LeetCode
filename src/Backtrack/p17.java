@@ -47,8 +47,21 @@ public class p17 {
 
             path.append(s.charAt(i));
             backTracking(digits,index+1,path);
-            path.deleteCharAt(path.length()-1);
+            path.deleteCharAt(path.length()-1);//回溯回来之后删掉上一轮添加的字符 然后继续这个for循环就可以继续加入 当前s这个数字字符串里面的其他数字
         }
 
+    }
+
+
+    public static void main(String[] args) {
+
+        String digits="23";
+        p17 t=new p17();
+        List<String> res = t.letterCombinations(digits);
+        for (String temp:res){
+            System.out.println(temp);
+        }
+
+        StringBuilder builder=new StringBuilder();
     }
 }

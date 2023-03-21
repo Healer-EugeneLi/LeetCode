@@ -27,12 +27,17 @@ public class p15 {
         int target=0;
         int sum=0;//左右指针的和
         for (int i=0;i<nums.length-2;i++){
+
+            //当前要指定的a这个数==前面一个 那当前这个数也没有必要去算了
             if (i>0&&nums[i]==nums[i-1]) continue;//去重
+
             if (nums[i]>0) break;//已经超过0了 因为一开始已经排序过了 所以后面的数肯定都是比0大的
 
-            target=0-nums[i];//设置a=nums[i]  所以需要找的另外两数的和为0-a
-            left=i+1;
-            right=nums.length-1;
+            //设置a=nums[i]  所以需要找的另外两数的和为0-a
+            target=0-nums[i];
+
+            left=i+1;//left从当前数下一个开始找
+            right=nums.length-1;//从最后一个开始往前找
             while (left<right){
 
                 sum=nums[left]+nums[right];//当前两个数的和
@@ -47,6 +52,8 @@ public class p15 {
                     while (left<right&&nums[right]==nums[right-1]){
                         right--;
                     }
+
+                    //找到一组之后并且也是过滤了重复的之后 就可以直接将两个指针移动
                     left++;
                     right--;
 

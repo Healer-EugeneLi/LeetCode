@@ -200,4 +200,20 @@ public class p98 {
 
         return res.nodes == (1 << res.height - 1);
     }
+
+    public boolean isValidBST2(TreeNode root) {
+
+        if (root==null) return true;
+
+        boolean left=isValidBST2(root.left);
+        if (left==false) return false;
+
+        if (root.val<=preValue) return false;
+        preValue=root.val;
+
+        boolean right = isValidBST2(root.right);
+        if (right==false) return false;
+
+        return true;
+    }
 }

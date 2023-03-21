@@ -11,6 +11,10 @@ import java.util.Arrays;
  */
 public class p37 {
 
+    /**
+     * 解数独
+     * @param board
+     */
     public void solveSudoku(char[][] board) {
 
 
@@ -31,11 +35,13 @@ public class p37 {
             for (int col = 0; col < board[0].length; col++) {
 
                 if (board[row][col]!='.') continue;//存在数的话 不需要填充
-                //对其进行1~9的填充来判断
+                //对该位置尝试着使用1~9的填充来判断
                 for (char value='1';value<='9';value++){
+                    //如果放上当前数字之后 是合法 符合规则的
                     if (isValid(board,row,col,value)){
-
+                        //在格子上设置该元素
                         board[row][col]=value;
+                        //最终可行
                         if (backTracking(board)) return true;
                         board[row][col]='.';
 

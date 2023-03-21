@@ -36,7 +36,7 @@ public class p79 {
      * @param used
      * @param x 当前要遍历的字符的x坐标
      * @param y 当前要遍历的字符的y坐标
-     * @param step 当前要判断的word的字符索引
+     * @param step 当前此次要判断的word的字符索引
      * @param word 判断的字符串
      * @return
      */
@@ -73,7 +73,7 @@ public class p79 {
         //没有的话 恢复原先未使用该字符的状态
         used[x][y]=false;
 
-        //返回false
+        //没有找到
         return false;
 
     }

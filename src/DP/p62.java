@@ -69,7 +69,7 @@ public class p62 {
 
         int dp[] = new int[n];
 
-        for (int j = 0; j < n; j++) dp[j] = 1;
+        for (int j = 0; j < n; j++) dp[j] = 1;//一开始到达第一行的所有位置只有一种方式
         for (int i = 1; i < m; i++) {//总的有m行 因为第一行已经赋值好了 所以从i=1行开始
             for (int j = 1; j < n; j++) {
                 dp[j] += dp[j - 1];
